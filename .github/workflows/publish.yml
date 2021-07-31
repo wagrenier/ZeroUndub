@@ -1,0 +1,83 @@
+name: Publish New Version
+
+on: 
+  workflow_dispatch:
+    inputs:
+      Pre-release:
+        description: 'Is this a pre-release?'     
+        required: true
+        default: 'false'
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+
+    - name: Restore dependencies
+      run: dotnet restore
+   
+    - name: Build
+      run: dotnet build --no-restore -c Release
+    
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+    
+    - name: Publish
+      run: dotnet publish -c Release /p:DebugType=None -o ./release
+        
+    # Setups the env vars for gitversion
+    - uses: gittools/actions/gitversion/setup@v0.9.7
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      with:
+          versionSpec: '5.x.x'
+          includePrerelease: true
+          
+    - name: Use GitVersion
+      id: gitversion # step id used as reference for output values
+      uses: gittools/actions/gitversion/execute@v0.9.7
+      #with:
+      #  useConfigFile: true
+      #  configFilePath: ./.github/GitVersion.yml
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'   
+    
+    # Zips the binaries and required files
+    - name: Zip App
+      run: |
+        cd release
+        Compress-Archive * ../zeroundub_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+        
+    # Creates a new TAG version
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: "${{ steps.gitversion.outputs.majorMinorPatch }}"
+        release_name: ZeroUndub Release ${{ steps.gitversion.outputs.majorMinorPatch }}
+        draft: false
+        prerelease: ${{ github.event.inputs.pre-release }}
+
+    # Releases the zipped assets
+    - name: Update release asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./zeroundub_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+        asset_name: zeroundub_v${{ steps.gitversion.outputs.majorMinorPatch }}.zip
+        asset_content_type: application/zip
