@@ -21,4 +21,8 @@
       </Resource>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\ZeroUndubProcess\ZeroUndubProcess.csproj" />
+    </ItemGroup>
+
 </Project>

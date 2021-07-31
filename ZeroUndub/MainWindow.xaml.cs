@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
+using ZeroUndubProcess;
 
 namespace ZeroUndub
 {
@@ -13,7 +14,7 @@ namespace ZeroUndub
     public partial class MainWindow : Window
     {
         private string JpIsoFile { get; set; }
-        private string UsIsoFile { get; set; }
+        private string EuIsoFile { get; set; }
         private bool IsUndubLaunched { get; set; } = false;
 
         public MainWindow()
@@ -24,7 +25,7 @@ namespace ZeroUndub
         private void UndubGame(object sender, DoWorkEventArgs e)
         {
             
-            if (string.IsNullOrWhiteSpace(JpIsoFile) || string.IsNullOrWhiteSpace(UsIsoFile))
+            if (string.IsNullOrWhiteSpace(JpIsoFile) || string.IsNullOrWhiteSpace(EuIsoFile))
             {
                 MessageBox.Show("Please select the files before!", "PS2 Fatal Frame Undubber");
                 return;
@@ -32,14 +33,18 @@ namespace ZeroUndub
             
             MessageBox.Show("Copying the US ISO, this may take a few minutes!", "PS2 Fatal Frame Undubber");
             IsUndubLaunched = true;
-                
-            (sender as BackgroundWorker)?.ReportProgress(10);
+
+            var undubGame = (bool) UndubCheckBox.IsChecked;
+            var injectSubtitle = (bool) ImportSubtitlesCheckBox.IsChecked;
+            var import3DModels = (bool) ImportModelsCheckBox.IsChecked;
+
+            var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, undubGame, import3DModels, injectSubtitle);
 
             var task = Task.Factory.StartNew(() =>
             {
             });
                 
-            while (false)//!importer.IsCompleted)
+            while (!importer.IsCompleted)
             {
                 (sender as BackgroundWorker)?.ReportProgress(1);
                 Thread.Sleep(100);
@@ -47,9 +52,9 @@ namespace ZeroUndub
             
             (sender as BackgroundWorker)?.ReportProgress(100);
 
-            if (false)//!importer.IsSuccess)
+            if (!importer.IsSuccess)
             {
-                //MessageBox.Show($"The program failed with the following message: {importer.ErrorMessage}", "PS2 Fatal Frame Undubber");
+                MessageBox.Show($"The program failed with the following message: {importer.ErrorMessage}", "PS2 Fatal Frame Undubber");
                 return;
             }
             
@@ -69,27 +74,27 @@ namespace ZeroUndub
             };
 
             worker.DoWork += UndubGame;
-            worker.ProgressChanged += worker_ProgressChanged;
+            worker.ProgressChanged += WorkerProgressChanged;
 
             worker.RunWorkerAsync();
         }
 
-        void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void WorkerProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             pbStatus.Value = e.ProgressPercentage;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void FileSelectorClick(object sender, RoutedEventArgs e)
         {
-            var usFileDialog = new OpenFileDialog
+            var euFileDialog = new OpenFileDialog
             {
                 Filter = "iso files (*.iso)|*.iso|All files (*.*)|*.*", 
-                Title = "Select the USA ISO"
+                Title = "Select the EU ISO"
             };
 
-            if (usFileDialog.ShowDialog() == true)
+            if (euFileDialog.ShowDialog() == true)
             {
-                UsIsoFile = usFileDialog.FileName;
+                EuIsoFile = euFileDialog.FileName;
             }
 
             var jpFileDialog = new OpenFileDialog
