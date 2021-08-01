@@ -1,0 +1,1127 @@
+[
+      {
+            "Id": 0,
+            "TextId": "Dummy Message",
+            "Text": "Dummy Message"
+      },
+      {
+            "Id": 1,
+            "TextId": "SUBTITLES-0010-01A",
+            "Text": "I wonder how long it's been since my brother and I"
+      },
+      {
+            "Id": 2,
+            "TextId": "SUBTITLES-0010-01B",
+            "Text": "began to see things other people can't see."
+      },
+      {
+            "Id": 3,
+            "TextId": "SUBTITLES-0010-02A",
+            "Text": "My big brother"
+      },
+      {
+            "Id": 4,
+            "TextId": "SUBTITLES-0010-02B",
+            "Text": "he was so sweet and kind."
+      },
+      {
+            "Id": 5,
+            "TextId": "SUBTITLES-0010-03",
+            "Text": "He was the only one I can open up to about these visions."
+      },
+      {
+            "Id": 6,
+            "TextId": "SUBTITLES-0010-04A",
+            "Text": "After our mother died"
+      },
+      {
+            "Id": 7,
+            "TextId": "SUBTITLES-0010-04B",
+            "Text": "he was my only family."
+      },
+      {
+            "Id": 8,
+            "TextId": "SUBTITLES-0010-05",
+            "Text": "So this is Himuro Mansion."
+      },
+      {
+            "Id": 9,
+            "TextId": "SUBTITLES-0010-06",
+            "Text": "My Brother was in search of someone."
+      },
+      {
+            "Id": 10,
+            "TextId": "SUBTITLES-0010-07A",
+            "Text": "Junsei Takamine, a famous novelist"
+      },
+      {
+            "Id": 11,
+            "TextId": "SUBTITLES-0010-07B",
+            "Text": "and a man my brother was very indebted to"
+      },
+      {
+            "Id": 12,
+            "TextId": "SUBTITLES-0010-07C",
+            "Text": "disappeared while researching a book."
+      },
+      {
+            "Id": 13,
+            "TextId": "SUBTITLES-0010-08A",
+            "Text": "When he told me that he got a lead on Mr. Takamine's whereabouts"
+      },
+      {
+            "Id": 14,
+            "TextId": "SUBTITLES-0010-08B",
+            "Text": "I felt uneasy"
+      },
+      {
+            "Id": 15,
+            "TextId": "SUBTITLES-0010-08C",
+            "Text": "like he was going far away."
+      },
+      {
+            "Id": 16,
+            "TextId": "SUBTITLES-0020-01",
+            "Text": "September 24, 1985"
+      },
+      {
+            "Id": 17,
+            "TextId": "SUBTITLES-0022-01",
+            "Text": "This notebook, it's Mr. Takamine's."
+      },
+      {
+            "Id": 18,
+            "TextId": "SUBTITLES-0031-01",
+            "Text": "That was Mr. Takamine, so he did come here."
+      },
+      {
+            "Id": 19,
+            "TextId": "SUBTITLES-1000-01",
+            "Text": ""
+      },
+      {
+            "Id": 20,
+            "TextId": "SUBTITLES-1000-02",
+            "Text": "It's been two weeks since I've last heard from my brother."
+      },
+      {
+            "Id": 21,
+            "TextId": "SUBTITLES-1000-03",
+            "Text": "But he left a note that lead me to this place."
+      },
+      {
+            "Id": 22,
+            "TextId": "SUBTITLES-1000-04",
+            "Text": "I've felt as though something was calling me here."
+      },
+      {
+            "Id": 23,
+            "TextId": "SUBTITLES-1010-01",
+            "Text": ""
+      },
+      {
+            "Id": 24,
+            "TextId": "SUBTITLES-1010-03",
+            "Text": ""
+      },
+      {
+            "Id": 25,
+            "TextId": "SUBTITLES-1010-04",
+            "Text": ""
+      },
+      {
+            "Id": 26,
+            "TextId": "SUBTITLES-1010-06",
+            "Text": ""
+      },
+      {
+            "Id": 27,
+            "TextId": "SUBTITLES-1031-01",
+            "Text": ""
+      },
+      {
+            "Id": 28,
+            "TextId": "SUBTITLES-1031-02",
+            "Text": "I wonder if we'll find anything here."
+      },
+      {
+            "Id": 29,
+            "TextId": "SUBTITLES-1031-03",
+            "Text": "It's cold."
+      },
+      {
+            "Id": 30,
+            "TextId": "SUBTITLES-1034-01",
+            "Text": "What a wreck."
+      },
+      {
+            "Id": 31,
+            "TextId": "SUBTITLES-1070-02",
+            "Text": ""
+      },
+      {
+            "Id": 32,
+            "TextId": "SUBTITLES-1102-03",
+            "Text": ""
+      },
+      {
+            "Id": 33,
+            "TextId": "SUBTITLES-1120-01",
+            "Text": ""
+      },
+      {
+            "Id": 34,
+            "TextId": "SUBTITLES-1120-02",
+            "Text": ""
+      },
+      {
+            "Id": 35,
+            "TextId": "SUBTITLES-1160-02",
+            "Text": ""
+      },
+      {
+            "Id": 36,
+            "TextId": "SUBTITLES-1170-01",
+            "Text": ""
+      },
+      {
+            "Id": 37,
+            "TextId": "SUBTITLES-1170-02",
+            "Text": ""
+      },
+      {
+            "Id": 38,
+            "TextId": "SUBTITLES-1180-01",
+            "Text": ""
+      },
+      {
+            "Id": 39,
+            "TextId": "SUBTITLES-1180-02",
+            "Text": ""
+      },
+      {
+            "Id": 40,
+            "TextId": "SUBTITLES-1240-01",
+            "Text": ""
+      },
+      {
+            "Id": 41,
+            "TextId": "SUBTITLES-1240-02",
+            "Text": ""
+      },
+      {
+            "Id": 42,
+            "TextId": "SUBTITLES-1240-07",
+            "Text": ""
+      },
+      {
+            "Id": 43,
+            "TextId": "SUBTITLES-1250-02",
+            "Text": ""
+      },
+      {
+            "Id": 44,
+            "TextId": "SUBTITLES-1250-03",
+            "Text": ""
+      },
+      {
+            "Id": 45,
+            "TextId": "SUBTITLES-1260-03",
+            "Text": ""
+      },
+      {
+            "Id": 46,
+            "TextId": "SUBTITLES-1330-01",
+            "Text": ""
+      },
+      {
+            "Id": 47,
+            "TextId": "SUBTITLES-1330-02",
+            "Text": ""
+      },
+      {
+            "Id": 48,
+            "TextId": "SUBTITLES-1410-04",
+            "Text": ""
+      },
+      {
+            "Id": 49,
+            "TextId": "SUBTITLES-2010-01",
+            "Text": ""
+      },
+      {
+            "Id": 50,
+            "TextId": "SUBTITLES-2010-02",
+            "Text": ""
+      },
+      {
+            "Id": 51,
+            "TextId": "SUBTITLES-2010-03",
+            "Text": ""
+      },
+      {
+            "Id": 52,
+            "TextId": "SUBTITLES-2010-04",
+            "Text": ""
+      },
+      {
+            "Id": 53,
+            "TextId": "SUBTITLES-2010-05A",
+            "Text": ""
+      },
+      {
+            "Id": 54,
+            "TextId": "SUBTITLES-2010-05B",
+            "Text": ""
+      },
+      {
+            "Id": 55,
+            "TextId": "SUBTITLES-2013-01",
+            "Text": ""
+      },
+      {
+            "Id": 56,
+            "TextId": "SUBTITLES-2013-02",
+            "Text": ""
+      },
+      {
+            "Id": 57,
+            "TextId": "SUBTITLES-2050-01",
+            "Text": ""
+      },
+      {
+            "Id": 58,
+            "TextId": "SUBTITLES-2050-02",
+            "Text": ""
+      },
+      {
+            "Id": 59,
+            "TextId": "SUBTITLES-2050-03",
+            "Text": ""
+      },
+      {
+            "Id": 60,
+            "TextId": "SUBTITLES-2061-01",
+            "Text": ""
+      },
+      {
+            "Id": 61,
+            "TextId": "SUBTITLES-2061-02",
+            "Text": ""
+      },
+      {
+            "Id": 62,
+            "TextId": "SUBTITLES-2061-03",
+            "Text": ""
+      },
+      {
+            "Id": 63,
+            "TextId": "SUBTITLES-2071-01A",
+            "Text": ""
+      },
+      {
+            "Id": 64,
+            "TextId": "SUBTITLES-2071-01B",
+            "Text": ""
+      },
+      {
+            "Id": 65,
+            "TextId": "SUBTITLES-2072-02",
+            "Text": ""
+      },
+      {
+            "Id": 66,
+            "TextId": "SUBTITLES-2091-03A",
+            "Text": ""
+      },
+      {
+            "Id": 67,
+            "TextId": "SUBTITLES-2091-03B",
+            "Text": ""
+      },
+      {
+            "Id": 68,
+            "TextId": "SUBTITLES-2091-04",
+            "Text": ""
+      },
+      {
+            "Id": 69,
+            "TextId": "SUBTITLES-2092-02",
+            "Text": ""
+      },
+      {
+            "Id": 70,
+            "TextId": "SUBTITLES-2092-03",
+            "Text": ""
+      },
+      {
+            "Id": 71,
+            "TextId": "SUBTITLES-2100-01",
+            "Text": ""
+      },
+      {
+            "Id": 72,
+            "TextId": "SUBTITLES-2131-01",
+            "Text": ""
+      },
+      {
+            "Id": 73,
+            "TextId": "SUBTITLES-2140-03",
+            "Text": ""
+      },
+      {
+            "Id": 74,
+            "TextId": "SUBTITLES-2141-02",
+            "Text": ""
+      },
+      {
+            "Id": 75,
+            "TextId": "SUBTITLES-2160-02",
+            "Text": ""
+      },
+      {
+            "Id": 76,
+            "TextId": "SUBTITLES-2170-01",
+            "Text": ""
+      },
+      {
+            "Id": 77,
+            "TextId": "SUBTITLES-2171-01",
+            "Text": ""
+      },
+      {
+            "Id": 78,
+            "TextId": "SUBTITLES-2171-02",
+            "Text": ""
+      },
+      {
+            "Id": 79,
+            "TextId": "SUBTITLES-3010-01",
+            "Text": ""
+      },
+      {
+            "Id": 80,
+            "TextId": "SUBTITLES-3020-01",
+            "Text": ""
+      },
+      {
+            "Id": 81,
+            "TextId": "SUBTITLES-3020-02",
+            "Text": ""
+      },
+      {
+            "Id": 82,
+            "TextId": "SUBTITLES-3060-01",
+            "Text": ""
+      },
+      {
+            "Id": 83,
+            "TextId": "SUBTITLES-3080-01",
+            "Text": ""
+      },
+      {
+            "Id": 84,
+            "TextId": "SUBTITLES-3080-04",
+            "Text": ""
+      },
+      {
+            "Id": 85,
+            "TextId": "SUBTITLES-4010-01",
+            "Text": ""
+      },
+      {
+            "Id": 86,
+            "TextId": "SUBTITLES-4010-02A",
+            "Text": ""
+      },
+      {
+            "Id": 87,
+            "TextId": "SUBTITLES-4010-02B",
+            "Text": ""
+      },
+      {
+            "Id": 88,
+            "TextId": "SUBTITLES-4011-01",
+            "Text": ""
+      },
+      {
+            "Id": 89,
+            "TextId": "SUBTITLES-4031-01A",
+            "Text": ""
+      },
+      {
+            "Id": 90,
+            "TextId": "SUBTITLES-4031-01B",
+            "Text": ""
+      },
+      {
+            "Id": 91,
+            "TextId": "SUBTITLES-4080-01",
+            "Text": ""
+      },
+      {
+            "Id": 92,
+            "TextId": "SUBTITLES-4090-02",
+            "Text": ""
+      },
+      {
+            "Id": 93,
+            "TextId": "SUBTITLES-4090-03",
+            "Text": ""
+      },
+      {
+            "Id": 94,
+            "TextId": "SUBTITLES-4110-01",
+            "Text": ""
+      },
+      {
+            "Id": 95,
+            "TextId": "SUBTITLES-4110-02",
+            "Text": ""
+      },
+      {
+            "Id": 96,
+            "TextId": "SUBTITLES-4110-03",
+            "Text": ""
+      },
+      {
+            "Id": 97,
+            "TextId": "SUBTITLES-4120-03",
+            "Text": ""
+      },
+      {
+            "Id": 98,
+            "TextId": "SUBTITLES-5010-01",
+            "Text": ""
+      },
+      {
+            "Id": 99,
+            "TextId": "SUBTITLES-5010-02",
+            "Text": ""
+      },
+      {
+            "Id": 100,
+            "TextId": "SUBTITLES-5010-03",
+            "Text": ""
+      },
+      {
+            "Id": 101,
+            "TextId": "SUBTITLES-5010-05A",
+            "Text": ""
+      },
+      {
+            "Id": 102,
+            "TextId": "SUBTITLES-5010-05B",
+            "Text": ""
+      },
+      {
+            "Id": 103,
+            "TextId": "SUBTITLES-5010-06",
+            "Text": ""
+      },
+      {
+            "Id": 104,
+            "TextId": "SUBTITLES-5010-07",
+            "Text": ""
+      },
+      {
+            "Id": 105,
+            "TextId": "SUBTITLES-5010-08A",
+            "Text": ""
+      },
+      {
+            "Id": 106,
+            "TextId": "SUBTITLES-5010-09",
+            "Text": ""
+      },
+      {
+            "Id": 107,
+            "TextId": "SUBTITLES-5010-10A",
+            "Text": ""
+      },
+      {
+            "Id": 108,
+            "TextId": "SUBTITLES-5010-10B",
+            "Text": ""
+      },
+      {
+            "Id": 109,
+            "TextId": "SUBTITLES-5010-11",
+            "Text": ""
+      },
+      {
+            "Id": 110,
+            "TextId": "SUBTITLES-5010-12",
+            "Text": ""
+      },
+      {
+            "Id": 111,
+            "TextId": "SUBTITLES-5010-13",
+            "Text": ""
+      },
+      {
+            "Id": 112,
+            "TextId": "SUBTITLES-5010-14A",
+            "Text": ""
+      },
+      {
+            "Id": 113,
+            "TextId": "SUBTITLES-5010-14B",
+            "Text": ""
+      },
+      {
+            "Id": 114,
+            "TextId": "SUBTITLES-5010-14C",
+            "Text": ""
+      },
+      {
+            "Id": 115,
+            "TextId": "SUBTITLES-5010-14D",
+            "Text": ""
+      },
+      {
+            "Id": 116,
+            "TextId": "SUBTITLES-5010-14E",
+            "Text": ""
+      },
+      {
+            "Id": 117,
+            "TextId": "SUBTITLES-5010-14F",
+            "Text": ""
+      },
+      {
+            "Id": 118,
+            "TextId": "SUBTITLES-5010-14G",
+            "Text": ""
+      },
+      {
+            "Id": 119,
+            "TextId": "SUBTITLES-5010-14H",
+            "Text": ""
+      },
+      {
+            "Id": 120,
+            "TextId": "SUBTITLES-5010-14I",
+            "Text": ""
+      },
+      {
+            "Id": 121,
+            "TextId": "SUBTITLES-5010-14J",
+            "Text": ""
+      },
+      {
+            "Id": 122,
+            "TextId": "SUBTITLES-5010-14K",
+            "Text": ""
+      },
+      {
+            "Id": 123,
+            "TextId": "SUBTITLES-5010-14L",
+            "Text": ""
+      },
+      {
+            "Id": 124,
+            "TextId": "SUBTITLES-5010-14M",
+            "Text": ""
+      },
+      {
+            "Id": 125,
+            "TextId": "SUBTITLES-5010-14N",
+            "Text": ""
+      },
+      {
+            "Id": 126,
+            "TextId": "SUBTITLES-5010-14O",
+            "Text": ""
+      },
+      {
+            "Id": 127,
+            "TextId": "SUBTITLES-5010-14P",
+            "Text": ""
+      },
+      {
+            "Id": 128,
+            "TextId": "SUBTITLES-5010-15",
+            "Text": ""
+      },
+      {
+            "Id": 129,
+            "TextId": "SUBTITLES-5010-16",
+            "Text": ""
+      },
+      {
+            "Id": 130,
+            "TextId": "SUBTITLES-5010-17",
+            "Text": ""
+      },
+      {
+            "Id": 131,
+            "TextId": "SUBTITLES-5010-18A",
+            "Text": ""
+      },
+      {
+            "Id": 132,
+            "TextId": "SUBTITLES-5010-18B",
+            "Text": ""
+      },
+      {
+            "Id": 133,
+            "TextId": "SUBTITLES-5010-18C",
+            "Text": ""
+      },
+      {
+            "Id": 134,
+            "TextId": "SUBTITLES-5010-18D",
+            "Text": ""
+      },
+      {
+            "Id": 135,
+            "TextId": "SUBTITLES-5010-18E",
+            "Text": ""
+      },
+      {
+            "Id": 136,
+            "TextId": "SUBTITLES-5010-19",
+            "Text": ""
+      },
+      {
+            "Id": 137,
+            "TextId": "SUBTITLES-5020-01",
+            "Text": ""
+      },
+      {
+            "Id": 138,
+            "TextId": "SUBTITLES-5020-02",
+            "Text": ""
+      },
+      {
+            "Id": 139,
+            "TextId": "SUBTITLES-5020-03",
+            "Text": ""
+      },
+      {
+            "Id": 140,
+            "TextId": "SUBTITLES-5020-05A",
+            "Text": ""
+      },
+      {
+            "Id": 141,
+            "TextId": "SUBTITLES-5020-05B",
+            "Text": ""
+      },
+      {
+            "Id": 142,
+            "TextId": "SUBTITLES-5020-06",
+            "Text": ""
+      },
+      {
+            "Id": 143,
+            "TextId": "SUBTITLES-5020-07",
+            "Text": ""
+      },
+      {
+            "Id": 144,
+            "TextId": "SUBTITLES-5020-08A",
+            "Text": ""
+      },
+      {
+            "Id": 145,
+            "TextId": "SUBTITLES-5020-09",
+            "Text": ""
+      },
+      {
+            "Id": 146,
+            "TextId": "SUBTITLES-5020-10A",
+            "Text": ""
+      },
+      {
+            "Id": 147,
+            "TextId": "SUBTITLES-5020-10B",
+            "Text": ""
+      },
+      {
+            "Id": 148,
+            "TextId": "SUBTITLES-5020-11A",
+            "Text": ""
+      },
+      {
+            "Id": 149,
+            "TextId": "SUBTITLES-5020-11B",
+            "Text": ""
+      },
+      {
+            "Id": 150,
+            "TextId": "SUBTITLES-5020-12A",
+            "Text": ""
+      },
+      {
+            "Id": 151,
+            "TextId": "SUBTITLES-5020-12B",
+            "Text": ""
+      },
+      {
+            "Id": 152,
+            "TextId": "SUBTITLES-5020-13A",
+            "Text": ""
+      },
+      {
+            "Id": 153,
+            "TextId": "SUBTITLES-5020-13B",
+            "Text": ""
+      },
+      {
+            "Id": 154,
+            "TextId": "SUBTITLES-5020-14",
+            "Text": ""
+      },
+      {
+            "Id": 155,
+            "TextId": "SUBTITLES-TAPE-W1-01",
+            "Text": ""
+      },
+      {
+            "Id": 156,
+            "TextId": "SUBTITLES-TAPE-W1-02",
+            "Text": ""
+      },
+      {
+            "Id": 157,
+            "TextId": "SUBTITLES-TAPE-W1-03",
+            "Text": ""
+      },
+      {
+            "Id": 158,
+            "TextId": "SUBTITLES-TAPE-W1-04",
+            "Text": ""
+      },
+      {
+            "Id": 159,
+            "TextId": "SUBTITLES-TAPE-W1-05",
+            "Text": ""
+      },
+      {
+            "Id": 160,
+            "TextId": "SUBTITLES-TAPE-W1-06",
+            "Text": ""
+      },
+      {
+            "Id": 161,
+            "TextId": "SUBTITLES-TAPE-W2-01",
+            "Text": ""
+      },
+      {
+            "Id": 162,
+            "TextId": "SUBTITLES-TAPE-R1-01",
+            "Text": ""
+      },
+      {
+            "Id": 163,
+            "TextId": "SUBTITLES-TAPE-R2-01",
+            "Text": ""
+      },
+      {
+            "Id": 164,
+            "TextId": "SUBTITLES-TAPE-R3-01",
+            "Text": ""
+      },
+      {
+            "Id": 165,
+            "TextId": "SUBTITLES-TAPE-R4-01",
+            "Text": ""
+      },
+      {
+            "Id": 166,
+            "TextId": "SUBTITLES-TAPE-B1-01",
+            "Text": ""
+      },
+      {
+            "Id": 167,
+            "TextId": "SUBTITLES-TAPE-B2-01",
+            "Text": ""
+      },
+      {
+            "Id": 168,
+            "TextId": "SUBTITLES-MAFUYU1-01",
+            "Text": ""
+      },
+      {
+            "Id": 169,
+            "TextId": "SUBTITLES-MAFUYU1-02",
+            "Text": ""
+      },
+      {
+            "Id": 170,
+            "TextId": "SUBTITLES-MAFUYU1-03",
+            "Text": ""
+      },
+      {
+            "Id": 171,
+            "TextId": "SUBTITLES-MAFUYU2-01",
+            "Text": ""
+      },
+      {
+            "Id": 172,
+            "TextId": "SUBTITLES-MAFUYU2-02",
+            "Text": ""
+      },
+      {
+            "Id": 173,
+            "TextId": "SUBTITLES-MAFUYU2-03",
+            "Text": ""
+      },
+      {
+            "Id": 174,
+            "TextId": "SUBTITLES-MAFUYU2-04",
+            "Text": ""
+      },
+      {
+            "Id": 175,
+            "TextId": "SUBTITLES-AG28-HEN05-01",
+            "Text": ""
+      },
+      {
+            "Id": 176,
+            "TextId": "SUBTITLES-AG29-HEN06-01",
+            "Text": ""
+      },
+      {
+            "Id": 177,
+            "TextId": "SUBTITLES-AG26-HEN03-01",
+            "Text": ""
+      },
+      {
+            "Id": 178,
+            "TextId": "SUBTITLES-AG23-HEN00-01",
+            "Text": ""
+      },
+      {
+            "Id": 179,
+            "TextId": "SUBTITLES-AG43-HAHA01-01",
+            "Text": ""
+      },
+      {
+            "Id": 180,
+            "TextId": "SUBTITLES-AG06-SAKKA06-01",
+            "Text": ""
+      },
+      {
+            "Id": 181,
+            "TextId": "SUBTITLES-AG74-KOKIRIE09-01",
+            "Text": ""
+      },
+      {
+            "Id": 182,
+            "TextId": "SUBTITLES-AG05-SAKKA05-01",
+            "Text": ""
+      },
+      {
+            "Id": 183,
+            "TextId": "SUBTITLES-AG00-SAKKA00-01",
+            "Text": ""
+      },
+      {
+            "Id": 184,
+            "TextId": "SUBTITLES-AG11-JOSYU03-01",
+            "Text": ""
+      },
+      {
+            "Id": 185,
+            "TextId": "SUBTITLES-AG70-KOKIRIE05-01",
+            "Text": ""
+      },
+      {
+            "Id": 186,
+            "TextId": "SUBTITLES-AG10-JOSYU02-01",
+            "Text": ""
+      },
+      {
+            "Id": 187,
+            "TextId": "SUBTITLES-AG07-SAKKA07-01",
+            "Text": ""
+      },
+      {
+            "Id": 188,
+            "TextId": "SUBTITLES-AG25-HEN02-01",
+            "Text": ""
+      },
+      {
+            "Id": 189,
+            "TextId": "SUBTITLES-AG08-JOSYU00-01",
+            "Text": ""
+      },
+      {
+            "Id": 190,
+            "TextId": "SUBTITLES-AG09-JOSYU01-01",
+            "Text": ""
+      },
+      {
+            "Id": 191,
+            "TextId": "SUBTITLES-AG13-JOSYU05-01",
+            "Text": ""
+      },
+      {
+            "Id": 192,
+            "TextId": "SUBTITLES-AG17-JOSYU09-01",
+            "Text": ""
+      },
+      {
+            "Id": 193,
+            "TextId": "SUBTITLES-AG11-MAYOIGO11-01",
+            "Text": ""
+      },
+      {
+            "Id": 194,
+            "TextId": "SUBTITLES-AG13-MAYOIGO13-01",
+            "Text": ""
+      },
+      {
+            "Id": 195,
+            "TextId": "SUBTITLES-AG01-MINZOKU01-01",
+            "Text": ""
+      },
+      {
+            "Id": 196,
+            "TextId": "SUBTITLES-AG14-MAYOIGO14-01",
+            "Text": ""
+      },
+      {
+            "Id": 197,
+            "TextId": "SUBTITLES-AG06-MINZOKU06-01",
+            "Text": ""
+      },
+      {
+            "Id": 198,
+            "TextId": "SUBTITLES-AG00-MAYOIGO00-01",
+            "Text": ""
+      },
+      {
+            "Id": 199,
+            "TextId": "SUBTITLES-AG05-KOKIRIE05-01",
+            "Text": "The forbidden rituals of this area."
+      },
+      {
+            "Id": 200,
+            "TextId": "SUBTITLES-AG21-MAYOIGO21-01",
+            "Text": "It looks like Mr. Takamine was doing research into them."
+      },
+      {
+            "Id": 201,
+            "TextId": "SUBTITLES-AG08-MINZOKU08-01",
+            "Text": "I wonder if his group is still here?"
+      },
+      {
+            "Id": 202,
+            "TextId": "SUBTITLES-AG11-MINZOKU11-01",
+            "Text": "I captured a ghost with this camera."
+      },
+      {
+            "Id": 203,
+            "TextId": "SUBTITLES-AG02-HAHA02-01",
+            "Text": "This camera has the power to expose things the normal eye can't see."
+      },
+      {
+            "Id": 204,
+            "TextId": "SUBTITLES-AG09-MINZOKU09-01",
+            "Text": "I remember the incident from which I learned from it's unique power to capture ghosts."
+      },
+      {
+            "Id": 205,
+            "TextId": "SUBTITLES-AG07-KOKIRIE07-01",
+            "Text": ""
+      },
+      {
+            "Id": 206,
+            "TextId": "SUBTITLES-GD-EDITOR-01",
+            "Text": ""
+      },
+      {
+            "Id": 207,
+            "TextId": "SUBTITLES-GD-ASSISTANT-01",
+            "Text": ""
+      },
+      {
+            "Id": 208,
+            "TextId": "SUBTITLES-GD-NOVELIST-01",
+            "Text": ""
+      },
+      {
+            "Id": 209,
+            "TextId": "SUBTITLES-GD-LOSTCHL1-01",
+            "Text": ""
+      },
+      {
+            "Id": 210,
+            "TextId": "SUBTITLES-GD-LOSTCHL2-01",
+            "Text": ""
+      },
+      {
+            "Id": 211,
+            "TextId": "SUBTITLES-GD-LOSTCHL3-01",
+            "Text": ""
+      },
+      {
+            "Id": 212,
+            "TextId": "SUBTITLES-GD-FOLKWF-01",
+            "Text": ""
+      },
+      {
+            "Id": 213,
+            "TextId": "SUBTITLES-GD-FOLK-01",
+            "Text": ""
+      },
+      {
+            "Id": 214,
+            "TextId": "SUBTITLES-GD-MEGA-01",
+            "Text": ""
+      },
+      {
+            "Id": 215,
+            "TextId": "SUBTITLES-GD-MASTER-01",
+            "Text": ""
+      },
+      {
+            "Id": 216,
+            "TextId": "SUBTITLES-GD-PRIEST1-01",
+            "Text": ""
+      },
+      {
+            "Id": 217,
+            "TextId": "SUBTITLES-GD-PRIEST2-01",
+            "Text": ""
+      },
+      {
+            "Id": 218,
+            "TextId": "SUBTITLES-GD-PRIEST3-01",
+            "Text": ""
+      },
+      {
+            "Id": 219,
+            "TextId": "SUBTITLES-GD-PRIEST4-01",
+            "Text": ""
+      },
+      {
+            "Id": 220,
+            "TextId": "SUBTITLES-MASTER-01",
+            "Text": ""
+      },
+      {
+            "Id": 221,
+            "TextId": "SUBTITLES-PRIEST1-01",
+            "Text": ""
+      },
+      {
+            "Id": 222,
+            "TextId": "SUBTITLES-PRIEST2-01",
+            "Text": ""
+      },
+      {
+            "Id": 223,
+            "TextId": "SUBTITLES-PRIEST3-01",
+            "Text": ""
+      },
+      {
+            "Id": 224,
+            "TextId": "SUBTITLES-PRIEST4-01",
+            "Text": ""
+      }
+]

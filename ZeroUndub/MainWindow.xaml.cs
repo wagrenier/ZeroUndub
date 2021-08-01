@@ -16,15 +16,41 @@ namespace ZeroUndub
         private string JpIsoFile { get; set; }
         private string EuIsoFile { get; set; }
         private bool IsUndubLaunched { get; set; } = false;
+        
+        private Options RestorationOptions { get; set; }
 
         public MainWindow()
         {
+            RestorationOptions = new Options
+            {
+                IsUndub = false,
+                IsModelImport = false,
+                IsSubtitleInject = false
+            };
+            
             InitializeComponent();
+        }
+        
+        private void CbUndubChecked(object sender, RoutedEventArgs e)
+        {
+            var newVal = (UndubCheckBox.IsChecked == true);
+            this.RestorationOptions.IsUndub = newVal;
+        }
+        
+        private void CbModelImportChecked(object sender, RoutedEventArgs e)
+        {
+            var newVal = (ImportModelsCheckBox.IsChecked == true);
+            this.RestorationOptions.IsModelImport = newVal;
+        }
+        
+        private void CbSubtitleChecked(object sender, RoutedEventArgs e)
+        {
+            var newVal = (ImportSubtitlesCheckBox.IsChecked == true);
+            this.RestorationOptions.IsSubtitleInject = newVal;
         }
 
         private void UndubGame(object sender, DoWorkEventArgs e)
         {
-            
             if (string.IsNullOrWhiteSpace(JpIsoFile) || string.IsNullOrWhiteSpace(EuIsoFile))
             {
                 MessageBox.Show("Please select the files before!", "PS2 Fatal Frame Undubber");
@@ -34,19 +60,16 @@ namespace ZeroUndub
             MessageBox.Show("Copying the US ISO, this may take a few minutes!", "PS2 Fatal Frame Undubber");
             IsUndubLaunched = true;
 
-            var undubGame = (bool) UndubCheckBox.IsChecked;
-            var injectSubtitle = (bool) ImportSubtitlesCheckBox.IsChecked;
-            var import3DModels = (bool) ImportModelsCheckBox.IsChecked;
-
-            var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, undubGame, import3DModels, injectSubtitle);
+            var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, this.RestorationOptions);
 
             var task = Task.Factory.StartNew(() =>
             {
+                importer.RestoreGame();
             });
                 
             while (!importer.IsCompleted)
             {
-                (sender as BackgroundWorker)?.ReportProgress(1);
+                (sender as BackgroundWorker)?.ReportProgress(100 * importer.UndubbedFiles / EuIsoConstants.NumberFiles);
                 Thread.Sleep(100);
             }
             
