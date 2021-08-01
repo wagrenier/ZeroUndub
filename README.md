@@ -17,4 +17,4 @@ Next version:
 What this programs needs:
 * Your owned copy of Project Zero ISO (EU)
 * Your owned copy of Project Zero (零) ISO (JP)
-* The [dotnet runtime 5.0.8](https://dotnet.microsoft.com/download/dotnet/5.0) -> select your platform on the right side
+* The [dotnet runtime 5.0.8](https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-desktop-5.0.8-windows-x64-installer)
