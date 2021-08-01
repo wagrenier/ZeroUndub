@@ -51,6 +51,7 @@ namespace ZeroUndubProcess
                     if (UndubOptions.IsUndub)
                     {
                         this.AudioUndub(zeroFile);
+                        this.PssUndub(zeroFile);
                     }
 
                     if (UndubOptions.IsModelImport)
@@ -97,6 +98,31 @@ namespace ZeroUndubProcess
                 
                 _euWriterHandler.WriteSubtitleNewText(zeroFile, subtitleOverallOffset, strBytes);
                 subtitleOverallOffset += strBytes.Length + 1;
+            }
+        }
+
+        private void PssUndub(ZeroFile zeroFile)
+        {
+            if (zeroFile.FileId != 0)
+            {
+                return;
+            }
+
+            var pss = JsonSerializer.Deserialize<List<PssInfo>>(File.ReadAllText("pss_info.json"));
+
+            var pssLength = pss.Count;
+
+            for (var i = 0; i < pssLength; i++)
+            {
+                if (pss[i].JpSize > pss[i].EuSize)
+                {
+                    continue;
+                }
+                
+                var jpBuffer = this._jpReaderHandler.ExtractFileFromAbsoluteAddress(pss[i].JpOffset, (int) pss[i].JpSize);
+                
+                this._euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuOffset, jpBuffer);
+                this._euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuSizeOffset, BitConverter.GetBytes(pss[i].JpSize));
             }
         }
 

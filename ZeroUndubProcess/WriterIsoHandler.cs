@@ -25,6 +25,15 @@ namespace ZeroUndubProcess
             this._writer.BaseStream.Seek(0, SeekOrigin.Begin);
         }
         
+        public void PatchBytesAtAbsoluteOffset(long offset, byte[] patchByte)
+        {
+            this._writer.BaseStream.Seek(offset, SeekOrigin.Begin);
+            this._writer.Write(patchByte);
+            
+            // 4th writing does not work if this is not here, wtf
+            this._writer.BaseStream.Seek(0, SeekOrigin.Begin);
+        }
+        
         public void WriteSubtitleNewText(ZeroFile subtitleFile, int subtitleOverallOffset, byte[] bytes)
         {
             this.SeekSubtitleAddressText(subtitleFile, subtitleOverallOffset);

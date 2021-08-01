@@ -47,5 +47,11 @@ namespace ZeroUndubProcess
             this.SeekFile(zeroFile);
             return this._reader.ReadBytes((int) zeroFile.Size);
         }
+
+        public byte[] ExtractFileFromAbsoluteAddress(long offset, int size)
+        {
+            this._reader.BaseStream.Seek(offset, SeekOrigin.Begin);
+            return this._reader.ReadBytes(size);
+        }
     }
 }
