@@ -5,7 +5,6 @@
         <TargetFramework>net5.0-windows</TargetFramework>
         <UseWPF>true</UseWPF>
         <ApplicationIcon>main.ico</ApplicationIcon>
-        <NoWin32Manifest>true</NoWin32Manifest>
         <StartupObject>ZeroUndub.App</StartupObject>
         <PackageIcon>main.png</PackageIcon>
         <PackageIconUrl />

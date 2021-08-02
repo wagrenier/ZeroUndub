@@ -13,22 +13,16 @@ namespace ZeroUndubProcess
         {
             var length = str.Length;
 
-            if (length < 25)
-            {
-                return str;
-            }
+            if (length < 25) return str;
 
             var newline_insert_index = str.IndexOf(' ', 25);
 
-            if (newline_insert_index < 0)
-            {
-                return str;
-            }
-            
+            if (newline_insert_index < 0) return str;
+
             return str.Insert(newline_insert_index, "\n");
         }
 
-    public static byte ConvertChar(char charConvert)
+        public static byte ConvertChar(char charConvert)
         {
             return charConvert switch
             {

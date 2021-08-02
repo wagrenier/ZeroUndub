@@ -15,7 +15,7 @@ namespace ZeroUndubProcess
         public static long ImgHdBinStartAddress = 0xA63000;
         public static long ImgBdBinStartAddress = 0x384A7800;
     }
-    
+
     public static class JpIsoConstants
     {
         public static int NumberFiles = 0x73A;
