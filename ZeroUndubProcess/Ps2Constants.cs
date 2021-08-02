@@ -9,7 +9,7 @@ namespace ZeroUndubProcess
     {
         public static int NumberFiles = 0x879;
         public static int SubtitleIndexOffset = 0x1EA13;
-        public static int SubtitleTextOffset = 0x1ED97;
+        public static int SubtitleTextOffset = 0x1ED97 + 184;
         public static int NumberSubtitles = 225;
         public static int AudioStartIndex = 1622;
         public static long ImgHdBinStartAddress = 0xA63000;

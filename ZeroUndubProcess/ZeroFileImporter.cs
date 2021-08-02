@@ -88,9 +88,18 @@ namespace ZeroUndubProcess
             var subtitleOverallOffset = 0x0;
             var subtitles = JsonSerializer.Deserialize<List<SubtitleFile>>(File.ReadAllText("transcribe_real.json"));
 
-            for (var i = 0; i < EuIsoConstants.NumberSubtitles; i++)
+            for (var i = 0; i < EuIsoConstants.NumberSubtitles + 46; i++)
             {
-                var textInject = subtitles[i].Text;
+                var textInject = "";
+                if (i > EuIsoConstants.NumberSubtitles - 1)
+                {
+                    textInject = subtitles[0].Text;
+                }
+                else
+                {
+                    textInject = subtitles[i].Text;
+                }
+                
                 textInject = TextUtils.LineSplit(textInject);
                 _euWriterHandler.WriteSubtitleNewAddress(zeroFile, i, subtitleOverallOffset);
                 
@@ -140,6 +149,12 @@ namespace ZeroUndubProcess
 
             switch (euFile.FileId)
             {
+                case 214:
+                    jpFileIndex = 78;
+                    break;
+                case 814:
+                    jpFileIndex = 495;
+                    break;
                 case 1062:
                     jpFileIndex = 743;
                     break;
