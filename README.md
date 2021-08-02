@@ -10,6 +10,8 @@ Includes:
 * Injects English subtitles
 * Patches the ELF to display subtitles in English
 * Injects Japanese version 3D models
+* Extract audio from JP video and inject them into the EU version
+* 100% FMV are undubbed
 
 Next version:
 * Compressed audio for larger audio files
