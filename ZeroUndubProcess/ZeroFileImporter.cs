@@ -24,7 +24,7 @@ namespace ZeroUndubProcess
             UndubOptions = options;
             EuIsoFileRead = new FileInfo(euIsoFile);
             
-            File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
+            //File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
             EuIsoFileWrite = new FileInfo($"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
             JpIsoFile = new FileInfo(jpIsoFile);
 
@@ -93,7 +93,7 @@ namespace ZeroUndubProcess
                 var textInject = "";
                 if (i > EuIsoConstants.NumberSubtitles - 1)
                 {
-                    textInject = subtitles[0].Text;
+                    textInject = subtitles[i].Text;
                 }
                 else
                 {
@@ -108,6 +108,8 @@ namespace ZeroUndubProcess
                 _euWriterHandler.WriteSubtitleNewText(zeroFile, subtitleOverallOffset, strBytes);
                 subtitleOverallOffset += strBytes.Length + 1;
             }
+            
+            this._euWriterHandler.WriteNewSizeFile(zeroFile, (int) zeroFile.Size + 100000);
         }
 
         private void PssUndub(ZeroFile zeroFile)

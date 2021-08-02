@@ -78,6 +78,13 @@ namespace ZeroUndubProcess
             this._writer.Write(buffer);
         }
         
+        public void WriteNewSizeFile(ZeroFile zeroFile, int newSize)
+        {
+            var fileSizeInfoOffset = zeroFile.FileId * 0x8 + 0x4;
+            this.SeekHdOffset(fileSizeInfoOffset);
+            this._writer.Write(newSize);
+        }
+        
         private void SeekHdOffset(long offset)
         {
             this._writer.BaseStream.Seek(_imgHdBinStartAddress, SeekOrigin.Begin);
@@ -90,11 +97,6 @@ namespace ZeroUndubProcess
             this._writer.BaseStream.Seek(zeroFile.Offset, SeekOrigin.Current);
         }
         
-        private void WriteNewSizeFile(ZeroFile zeroFile, int newSize)
-        {
-            var fileSizeInfoOffset = zeroFile.FileId * 0x8 + 0x4;
-            this.SeekHdOffset(fileSizeInfoOffset);
-            this._writer.Write(newSize);
-        }
+        
     }
 }
