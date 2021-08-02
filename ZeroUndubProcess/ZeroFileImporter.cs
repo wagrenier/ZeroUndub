@@ -24,7 +24,7 @@ namespace ZeroUndubProcess
             UndubOptions = options;
             EuIsoFileRead = new FileInfo(euIsoFile);
             
-            //File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
+            File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
             EuIsoFileWrite = new FileInfo($"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
             JpIsoFile = new FileInfo(jpIsoFile);
 
