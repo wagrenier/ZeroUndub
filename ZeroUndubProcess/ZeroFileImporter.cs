@@ -1,19 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace ZeroUndubProcess
 {
     public sealed class ZeroFileImporter
     {
+        public int UndubbedFiles { get; private set; }
+        public bool IsCompleted { get; private set; }
+        public bool IsSuccess { get; private set; }
+        public string ErrorMessage { get; private set; }
+        private FileInfo JpIsoFile { get; }
+        private FileInfo EuIsoFileRead { get; }
+        private FileInfo EuIsoFileWrite { get; }
+        private Options UndubOptions { get; }
+        private ReaderIsoHandler _jpReaderHandler { get; }
+        private ReaderIsoHandler _euReaderHandler { get; }
+        private WriterIsoHandler _euWriterHandler { get; }
+        
         public ZeroFileImporter(string euIsoFile, string jpIsoFile, Options options)
         {
             UndubOptions = options;
             EuIsoFileRead = new FileInfo(euIsoFile);
 
-            File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
-            EuIsoFileWrite = new FileInfo($"{EuIsoFileRead.DirectoryName}/pz_restored.iso");
+            File.Copy(EuIsoFileRead.FullName, $"{EuIsoFileRead.DirectoryName}/pz_redux.iso");
+            EuIsoFileWrite = new FileInfo($"{EuIsoFileRead.DirectoryName}/pz_redux.iso");
             JpIsoFile = new FileInfo(jpIsoFile);
 
             _jpReaderHandler = new ReaderIsoHandler(JpIsoFile, JpIsoConstants.ImgHdBinStartAddress,
@@ -26,18 +39,6 @@ namespace ZeroUndubProcess
                 EuIsoConstants.ImgBdBinStartAddress);
         }
 
-        public int UndubbedFiles { get; private set; }
-        public bool IsCompleted { get; private set; }
-        public bool IsSuccess { get; private set; }
-        public string ErrorMessage { get; private set; }
-        private FileInfo JpIsoFile { get; }
-        private FileInfo EuIsoFileRead { get; }
-        private FileInfo EuIsoFileWrite { get; }
-        private Options UndubOptions { get; }
-        private ReaderIsoHandler _jpReaderHandler { get; }
-        private ReaderIsoHandler _euReaderHandler { get; }
-        private WriterIsoHandler _euWriterHandler { get; }
-
         public void RestoreGame()
         {
             try
@@ -47,6 +48,12 @@ namespace ZeroUndubProcess
                     UndubbedFiles = i;
                     var zeroFile = _euReaderHandler.ExtractFileInfo(i);
                     Console.WriteLine($"FileId: {zeroFile.FileId}, Offset: {zeroFile.Offset}, Size: {zeroFile.Size}");
+
+                    if (zeroFile.FileId == 660)
+                    {
+                        // Patch the title screen
+                        _euWriterHandler.PatchBytesAtAbsoluteOffset(0x4179F830, TextUtils.NewSplashScreen);
+                    }
 
                     if (UndubOptions.IsUndub)
                     {
@@ -74,6 +81,14 @@ namespace ZeroUndubProcess
             }
 
             IsCompleted = true;
+            CloseFiles();
+        }
+        
+        private void CloseFiles()
+        {
+            _euReaderHandler.Close();
+            _euWriterHandler.Close();
+            _jpReaderHandler.Close();
         }
 
         private void InjectNewSubtitles(ZeroFile zeroFile)
@@ -170,9 +185,50 @@ namespace ZeroUndubProcess
 
             switch (euFile.FileId)
             {
+                case 67:
+                case 68:
+                case 69:
+                case 70:
+                case 71:
+                    jpFileIndex = 39;
+                    SwapHomeMenu(euFile, jpFileIndex);
+                    return;
+                case 72:
+                case 73:
+                case 74:
+                case 75:
+                case 76:
+                    jpFileIndex = 40;
+                    SwapHomeMenu(euFile, jpFileIndex);
+                    return;
+                case 77:
+                case 78:
+                case 79:
+                case 80:
+                case 81:
+                    jpFileIndex = 41;
+                    SwapHomeMenu(euFile, jpFileIndex);
+                    return;
+                case 82:
+                case 83:
+                case 84:
+                case 85:
+                case 86:
+                    jpFileIndex = 42;
+                    SwapHomeMenu(euFile, jpFileIndex);
+                    return;
                 case 214:
                     jpFileIndex = 78;
                     break;
+                case 491:
+                case 492:
+                case 493:
+                case 494:
+                case 495:
+                case 496:
+                    jpFileIndex = 259;
+                    SwapHomeMenu(euFile, jpFileIndex);
+                    return;
                 case 814:
                     jpFileIndex = 495;
                     break;
@@ -201,6 +257,29 @@ namespace ZeroUndubProcess
             var file_buffer = _jpReaderHandler.ExtractFileContent(_jpReaderHandler.ExtractFileInfo(jpFileIndex));
 
             _euWriterHandler.OverwriteFile(euFile, file_buffer);
+        }
+
+        private void SwapHomeMenu(ZeroFile zeroFile, int jpFileIndex)
+        {
+            var file_buffer_jp = _jpReaderHandler.ExtractFileContent(_jpReaderHandler.ExtractFileInfo(jpFileIndex));
+            var file_buffer_eu = _euReaderHandler.ExtractFileContent(zeroFile);
+
+            var newBuffer = file_buffer_eu.SubArray(0, file_buffer_eu.Length);
+
+            for (var i = 0; i < 11; i++)
+            {
+                var offsetEu = BitConverter.ToUInt32(file_buffer_eu.SubArray(0x10 + i * 0x4, 4));
+
+                var offsetJp = BitConverter.ToUInt32(file_buffer_jp.SubArray(0x10 + i * 0x4, 4));
+                var sizeJp = BitConverter.ToUInt32(file_buffer_jp.SubArray(offsetJp + 0x10, 4));
+
+                for (var k = 0; k < sizeJp; k++)
+                {
+                    newBuffer[k + offsetEu] = file_buffer_jp[k + offsetJp];
+                }
+            }
+            
+            _euWriterHandler.OverwriteFile(zeroFile, newBuffer);
         }
 
         private void AudioUndub(ZeroFile euFile)

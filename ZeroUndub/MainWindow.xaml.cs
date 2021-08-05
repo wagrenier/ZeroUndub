@@ -84,7 +84,10 @@ namespace ZeroUndub
 
         private void LaunchUndubbing(object sender, EventArgs e)
         {
-            if (IsUndubLaunched) return;
+            if (IsUndubLaunched)
+            {
+                return;
+            }
 
             var worker = new BackgroundWorker
             {
@@ -110,7 +113,10 @@ namespace ZeroUndub
                 Title = "Select the EU ISO"
             };
 
-            if (euFileDialog.ShowDialog() == true) EuIsoFile = euFileDialog.FileName;
+            if (euFileDialog.ShowDialog() == true)
+            {
+                EuIsoFile = euFileDialog.FileName;
+            }
 
             var jpFileDialog = new OpenFileDialog
             {
@@ -118,7 +124,10 @@ namespace ZeroUndub
                 Title = "Select the JP ISO"
             };
 
-            if (jpFileDialog.ShowDialog() == true) JpIsoFile = jpFileDialog.FileName;
+            if (jpFileDialog.ShowDialog() == true)
+            {
+                JpIsoFile = jpFileDialog.FileName;
+            }
         }
     }
 }

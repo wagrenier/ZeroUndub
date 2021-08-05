@@ -16,6 +16,11 @@ namespace ZeroUndubProcess
             _imgBdBinStartAddress = ImgBdBinStartAddress;
         }
 
+        public void Close()
+        {
+            _writer.Close();
+        }
+
         public void PatchByteAtAbsoluteOffset(long offset, byte patchByte)
         {
             _writer.BaseStream.Seek(offset, SeekOrigin.Begin);

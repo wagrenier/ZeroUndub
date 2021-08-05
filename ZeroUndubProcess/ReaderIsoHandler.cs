@@ -15,6 +15,11 @@ namespace ZeroUndubProcess
             _imgBdBinStartAddress = ImgBdBinStartAddress;
         }
 
+        public void Close()
+        {
+            _reader.Close();
+        }
+
         private void SeekHdOffset(long offset)
         {
             _reader.BaseStream.Seek(_imgHdBinStartAddress, SeekOrigin.Begin);
