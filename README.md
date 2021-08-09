@@ -16,9 +16,9 @@ Includes:
 Next version:
 * Compressed audio for larger audio files
 
-![Splash Screen And Original Title Screen](https://github.com/wagrenier/ZeroUndub/blob/main/docs/splashscreen.mp4)
-![JP 3D Models](https://github.com/wagrenier/ZeroUndub/blob/main/docs/models.mp4)
-![Pre-Rendered Cutscenes](https://github.com/wagrenier/ZeroUndub/blob/main/docs/jpaudio.mp4)
+![Splash Screen And Original Title Screen](docs/splashscreen.gif)
+
+![JP 3D Models](docs/models.gif)
 
 What this programs needs:
 * Your owned copy of Project Zero ISO (EU)
