@@ -5,6 +5,12 @@
 
 Undub project for Fatal Frame PS2 (Project Zero/零)
 
+![Splash Screen And Original Title Screen](docs/splashscreen.gif)
+
+![JP 3D Models](docs/models.gif)
+
+
+
 Includes:
 * All audio and video files that are smaller or equal size in the JP version will be undubbed
 * Injects English subtitles
@@ -15,10 +21,6 @@ Includes:
 
 Next version:
 * Compressed audio for larger audio files
-
-![Splash Screen And Original Title Screen](docs/splashscreen.gif)
-
-![JP 3D Models](docs/models.gif)
 
 What this programs needs:
 * Your owned copy of Project Zero ISO (EU)
