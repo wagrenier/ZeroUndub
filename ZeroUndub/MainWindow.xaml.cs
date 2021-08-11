@@ -66,7 +66,7 @@ namespace ZeroUndub
 
             while (!importer.IsCompleted)
             {
-                (sender as BackgroundWorker)?.ReportProgress(100 * importer.UndubbedFiles / EuIsoConstants.NumberFiles);
+                (sender as BackgroundWorker)?.ReportProgress(100 * importer.FilesCompleted / importer.TotalFiles);
                 Thread.Sleep(100);
             }
 

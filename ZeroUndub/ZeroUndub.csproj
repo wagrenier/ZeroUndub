@@ -18,6 +18,8 @@
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </Resource>
+      <None Remove="main.ico" />
+      <Resource Include="main.ico" />
     </ItemGroup>
 
     <ItemGroup>

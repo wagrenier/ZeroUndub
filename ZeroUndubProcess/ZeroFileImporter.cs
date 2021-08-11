@@ -7,7 +7,8 @@ namespace ZeroUndubProcess
 {
     public sealed class ZeroFileImporter
     {
-        public int UndubbedFiles { get; private set; }
+        public int TotalFiles { get; private set; }
+        public int FilesCompleted { get; private set; }
         public bool IsCompleted { get; private set; }
         public bool IsSuccess { get; private set; }
         public string ErrorMessage { get; private set; }
@@ -18,6 +19,7 @@ namespace ZeroUndubProcess
         private ReaderIsoHandler _jpReaderHandler { get; }
         private ReaderIsoHandler _euReaderHandler { get; }
         private WriterIsoHandler _euWriterHandler { get; }
+        private List<PssInfo> _pssInfos { get; }
         
         public ZeroFileImporter(string euIsoFile, string jpIsoFile, Options options)
         {
@@ -36,17 +38,25 @@ namespace ZeroUndubProcess
 
             _euWriterHandler = new WriterIsoHandler(EuIsoFileWrite, EuIsoConstants.ImgHdBinStartAddress,
                 EuIsoConstants.ImgBdBinStartAddress);
+            
+            _pssInfos = JsonSerializer.Deserialize<List<PssInfo>>(PssConstants.PssIsoData);
+
+            TotalFiles = _pssInfos.Count + EuIsoConstants.NumberFiles;
+            FilesCompleted = 0;
         }
 
         public void RestoreGame()
         {
             try
             {
+                if (UndubOptions.IsUndub)
+                {
+                    PssUndub();
+                }
+                
                 for (var i = 0; i < EuIsoConstants.NumberFiles; i++)
                 {
-                    UndubbedFiles = i;
                     var zeroFile = _euReaderHandler.ExtractFileInfo(i);
-                    //Console.WriteLine($"FileId: {zeroFile.FileId}, Offset: {zeroFile.Offset}, Size: {zeroFile.Size}");
 
                     if (zeroFile.FileId == 660)
                     {
@@ -57,7 +67,6 @@ namespace ZeroUndubProcess
                     if (UndubOptions.IsUndub)
                     {
                         AudioUndub(zeroFile);
-                        PssUndub(zeroFile);
                     }
 
                     if (UndubOptions.IsModelImport)
@@ -69,6 +78,8 @@ namespace ZeroUndubProcess
                     {
                         InjectNewSubtitles(zeroFile);
                     }
+                    
+                    FilesCompleted += 1;
                 }
 
                 IsSuccess = true;
@@ -118,57 +129,29 @@ namespace ZeroUndubProcess
             _euWriterHandler.WriteNewSizeFile(zeroFile, (int) zeroFile.Size + 100000);
         }
 
-        private void PssUndub(ZeroFile zeroFile)
+        private void PssUndub()
         {
-            if (zeroFile.FileId != 0)
+            foreach (var currentPss in _pssInfos)
             {
-                return;
-            }
+                FilesCompleted += 1;
+                
+                var jpBuffer = _jpReaderHandler.ExtractFileFromAbsoluteAddress(currentPss.JpOffset, (int) currentPss.JpSize);
 
-            var pss = JsonSerializer.Deserialize<List<PssInfo>>(File.ReadAllText("pss_info.json"));
-
-            var pssLength = pss.Count;
-
-            for (var i = 0; i < pssLength; i++)
-            {
-                var jpBuffer = _jpReaderHandler.ExtractFileFromAbsoluteAddress(pss[i].JpOffset, (int) pss[i].JpSize);
-
-                if (pss[i].JpSize <= pss[i].EuSize)
+                if (currentPss.JpSize <= currentPss.EuSize)
                 {
-                    _euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuOffset, jpBuffer);
-                    _euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuSizeOffset,
-                        BitConverter.GetBytes(pss[i].JpSize));
+                    _euWriterHandler.PatchBytesAtAbsoluteOffset(currentPss.EuOffset, jpBuffer);
+                    _euWriterHandler.PatchBytesAtAbsoluteOffset(currentPss.EuSizeOffset,
+                        BitConverter.GetBytes(currentPss.JpSize));
                     continue;
                 }
 
-                CreateFile($"{EuIsoFileRead.DirectoryName}/{i}_jp.PSS", jpBuffer);
+                var euBuffer = _euReaderHandler.ExtractFileFromAbsoluteAddress(currentPss.EuOffset, (int) currentPss.EuSize);
 
-                var euBuffer = _euReaderHandler.ExtractFileFromAbsoluteAddress(pss[i].EuOffset, (int) pss[i].EuSize);
-                CreateFile($"{EuIsoFileRead.DirectoryName}/{i}_eu.PSS", euBuffer);
+                var newVideoBuffer = PssAudioHandler.SwitchPssAudio(jpBuffer, euBuffer);
 
-                ExternalProcess.PssSwitchAudio(i, EuIsoFileRead.DirectoryName);
-
-                var newVideoBuffer = File.ReadAllBytes($"{EuIsoFileRead.DirectoryName}/{i}.PSS");
-
-                File.Delete($"{EuIsoFileRead.DirectoryName}/{i}.PSS");
-
-                if (newVideoBuffer.Length > pss[i].EuSize)
-                {
-                    Console.WriteLine($"File {pss[i].Filename} is too big to be imported");
-                    continue;
-                }
-
-                _euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuOffset, newVideoBuffer);
-                _euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuSizeOffset,
-                    BitConverter.GetBytes(newVideoBuffer.Length));
+                _euWriterHandler.PatchBytesAtAbsoluteOffset(currentPss.EuOffset, newVideoBuffer);
+                _euWriterHandler.PatchBytesAtAbsoluteOffset(currentPss.EuSizeOffset, BitConverter.GetBytes(newVideoBuffer.Length));
             }
-        }
-
-        private void CreateFile(string fileName, byte[] buffer)
-        {
-            var file = File.Create(fileName);
-            file.Write(buffer);
-            file.Close();
         }
 
         private void PatchBinarySubtitle()
@@ -296,8 +279,7 @@ namespace ZeroUndubProcess
 
         private void AudioUndub(ZeroFile euFile)
         {
-            if (euFile.FileId < EuIsoConstants.AudioStartIndex ||
-                euFile.FileId == EuIsoConstants.NumberFiles - 1)
+            if (euFile.FileId < EuIsoConstants.AudioStartIndex || euFile.FileId == EuIsoConstants.NumberFiles - 1)
             {
                 return;
             }
