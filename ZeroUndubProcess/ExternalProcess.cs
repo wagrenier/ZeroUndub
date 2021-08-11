@@ -25,7 +25,8 @@ namespace ZeroUndubProcess
                 {
                     FileName = "PSS_Plex.exe",
                     UseShellExecute = false,
-                    CreateNoWindow = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
                     Arguments = args
                 }
             };
@@ -57,7 +58,8 @@ namespace ZeroUndubProcess
                 {
                     FileName = "PSS_Plex.exe",
                     UseShellExecute = false,
-                    CreateNoWindow = false,
+                    CreateNoWindow = true,
+                    WindowStyle = ProcessWindowStyle.Hidden,
                     Arguments = args
                 }
             };
@@ -75,7 +77,6 @@ namespace ZeroUndubProcess
                 {
                 }
             }
-                
 
             File.Delete($"{folder}/{fileId}_eu.WAV");
             File.Delete($"{folder}/{fileId}_jp.WAV");

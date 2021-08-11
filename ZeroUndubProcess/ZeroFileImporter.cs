@@ -46,7 +46,7 @@ namespace ZeroUndubProcess
                 {
                     UndubbedFiles = i;
                     var zeroFile = _euReaderHandler.ExtractFileInfo(i);
-                    Console.WriteLine($"FileId: {zeroFile.FileId}, Offset: {zeroFile.Offset}, Size: {zeroFile.Size}");
+                    //Console.WriteLine($"FileId: {zeroFile.FileId}, Offset: {zeroFile.Offset}, Size: {zeroFile.Size}");
 
                     if (zeroFile.FileId == 660)
                     {
@@ -155,6 +155,7 @@ namespace ZeroUndubProcess
                 if (newVideoBuffer.Length > pss[i].EuSize)
                 {
                     Console.WriteLine($"File {pss[i].Filename} is too big to be imported");
+                    continue;
                 }
 
                 _euWriterHandler.PatchBytesAtAbsoluteOffset(pss[i].EuOffset, newVideoBuffer);
@@ -248,6 +249,18 @@ namespace ZeroUndubProcess
                     break;
                 case 1067:
                     jpFileIndex = 748;
+                    break;
+                case 1068:
+                    jpFileIndex = 749;
+                    break;
+                case 1069:
+                    jpFileIndex = 750;
+                    break;
+                case 1070:
+                    jpFileIndex = 751;
+                    break;
+                case 1071:
+                    jpFileIndex = 752;
                     break;
                 default:
                     return;

@@ -74,7 +74,7 @@ namespace ZeroUndubProcess
 
             if (newFileSize > (int) zeroFile.Size)
             {
-                Console.WriteLine($"File {zeroFile.FileId} cannot be undubbed.");
+                Console.WriteLine($"File {zeroFile.FileId} cannot be undubbed. Difference of {newFileSize - zeroFile.Size}");
                 return;
             }
 
