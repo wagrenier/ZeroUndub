@@ -289,7 +289,7 @@ namespace ZeroUndubProcess
             var jpFileIndex = euFile.FileId - (EuIsoConstants.AudioStartIndex - JpIsoConstants.AudioStartIndex);
             var file_buffer = _jpReaderHandler.ExtractFileContent(_jpReaderHandler.ExtractFileInfo(jpFileIndex));
 
-            _euWriterHandler.OverwriteFile(euFile, file_buffer);
+            _euWriterHandler.OverwriteFile(euFile, file_buffer, _euReaderHandler.ExtractFileInfo(euFile.FileId + 1));
         }
     }
 }

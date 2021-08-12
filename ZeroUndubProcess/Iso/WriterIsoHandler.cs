@@ -68,14 +68,53 @@ namespace ZeroUndubProcess
             _writer.BaseStream.Seek(textFileOffset, SeekOrigin.Current);
         }
 
-        public void OverwriteFile(ZeroFile zeroFile, byte[] buffer)
+        public void OverwriteFile(ZeroFile zeroFile, byte[] buffer, ZeroFile nextFile = null)
         {
             var newFileSize = buffer.Length;
 
             if (newFileSize > (int) zeroFile.Size)
             {
-                Console.WriteLine($"File {zeroFile.FileId} cannot be undubbed. Difference of {newFileSize - zeroFile.Size}");
-                return;
+                var availableBytes = Ps2Constants.SectorSize - zeroFile.Size % Ps2Constants.SectorSize;
+                var fileSizeDifference = newFileSize - zeroFile.Size;
+
+                if (availableBytes < fileSizeDifference)
+                {
+                    var nextFileOffset = nextFile.Offset / Ps2Constants.SectorSize;
+
+                    var currFileEndSector =
+                        (zeroFile.Offset + availableBytes + zeroFile.Size) / Ps2Constants.SectorSize;
+
+                    var availableSectors = nextFileOffset - currFileEndSector;
+
+                    var fullAvailableBytes = availableSectors * Ps2Constants.SectorSize;
+
+                    if (fullAvailableBytes < fileSizeDifference)
+                    {
+                        var whiteSpace = 0;
+                        for (var i = buffer.Length - 1; i > 0; i--)
+                        {
+                            if (buffer[i] != '\x00')
+                            {
+                                break;
+                            }
+
+                            whiteSpace += 1;
+                        }
+
+                        fullAvailableBytes += whiteSpace;
+
+                        if (fullAvailableBytes < fileSizeDifference)
+                        {
+                            Console.WriteLine($"File {zeroFile.FileId} cannot be undubbed. Difference of {fileSizeDifference}, Full: {fullAvailableBytes}, Fits: {fullAvailableBytes >= fileSizeDifference}");
+                    
+                            // Force write, results unknown
+                            return;
+                        }
+
+                        buffer = buffer.SubArray(0, buffer.Length - whiteSpace);
+                        newFileSize = buffer.Length;
+                    }
+                }
             }
 
             WriteNewSizeFile(zeroFile, newFileSize);
