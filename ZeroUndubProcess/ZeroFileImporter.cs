@@ -61,7 +61,7 @@ namespace ZeroUndubProcess
                     if (zeroFile.FileId == 660)
                     {
                         // Patch the title screen
-                        _euWriterHandler.PatchBytesAtAbsoluteOffset(0x4179F830, TextUtils.NewSplashScreen);
+                        _euWriterHandler.PatchBytesAtAbsoluteOffset(0x4179F830, IntroSplashScreen.NewSplashScreen);
                     }
 
                     if (UndubOptions.IsUndub)
@@ -111,7 +111,7 @@ namespace ZeroUndubProcess
             PatchBinarySubtitle();
 
             var subtitleOverallOffset = 0x0;
-            var subtitles = JsonSerializer.Deserialize<List<SubtitleFile>>(File.ReadAllText("transcribe_real.json"));
+            var subtitles = JsonSerializer.Deserialize<List<SubtitleFile>>(File.ReadAllText("transcribe.json"));
 
             for (var i = 0; i < EuIsoConstants.NumberSubtitles + 46; i++)
             {
@@ -200,6 +200,9 @@ namespace ZeroUndubProcess
                     jpFileIndex = 42;
                     SwapHomeMenu(euFile, jpFileIndex);
                     return;
+                case 170:
+                    jpFileIndex = 66;
+                    break;
                 case 214:
                     jpFileIndex = 78;
                     break;
@@ -208,7 +211,6 @@ namespace ZeroUndubProcess
                 case 493:
                 case 494:
                 case 495:
-                case 496:
                     jpFileIndex = 259;
                     SwapHomeMenu(euFile, jpFileIndex);
                     return;
