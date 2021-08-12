@@ -18,7 +18,7 @@ Includes:
 * 100% FMV are undubbed
 
 Next version:
-* Compressed audio for larger audio files
+* Inject what is possible into audio files, at risk of shortening the audio
 
 What this programs needs:
 * Your owned copy of Project Zero ISO (EU)
