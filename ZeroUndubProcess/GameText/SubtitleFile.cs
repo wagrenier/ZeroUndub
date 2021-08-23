@@ -1,4 +1,4 @@
-namespace ZeroUndubProcess
+namespace ZeroUndubProcess.GameText
 {
     public sealed class SubtitleFile
     {

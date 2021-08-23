@@ -1,3 +1,5 @@
+using ZeroUndubProcess.GameText;
+
 namespace ZeroUndubProcess
 {
     public class ArrayAsStream

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using ZeroUndubProcess.GameText;
 
 namespace ZeroUndubProcess
 {

@@ -1,7 +1,8 @@
 using System;
 using System.Linq;
+using System.Text;
 
-namespace ZeroUndubProcess
+namespace ZeroUndubProcess.GameText
 {
     public static class TextUtils
     {
@@ -24,20 +25,23 @@ namespace ZeroUndubProcess
             return strConvert.Select(ConvertChar).ToArray();
         }
 
-        public static string LineSplit(string subtitleText)
+        public static string LineSplit(string subtitleText, bool isRadioSubtitle = false)
         {
-            if (subtitleText.Length < 25)
+            var maxLineLength = isRadioSubtitle ? 50 : 25;
+            
+            if (subtitleText.Length < maxLineLength)
             {
                 return subtitleText;
             }
 
             var doLineSplit = false;
-            var returnStr = subtitleText;
-            var offset = 0;
-            
+            var returnStr = new StringBuilder(subtitleText);
+            var currentLineIndex = -1;
+
             for (var i = 0; i < subtitleText.Length; i++)
             {
-                if (i != 0 && i % 25 == 0)
+                currentLineIndex += 1;
+                if (currentLineIndex != 0 && currentLineIndex % maxLineLength == 0)
                 {
                     doLineSplit = true;
                 }
@@ -46,13 +50,13 @@ namespace ZeroUndubProcess
                 {
                     continue;
                 }
-
-                returnStr = returnStr.Insert(i + offset, "\n");
+                
+                returnStr[i] = '\n';
                 doLineSplit = false;
-                offset += 1;
+                currentLineIndex = -1;
             }
 
-            return returnStr;
+            return returnStr.ToString();
         }
 
         private static byte ConvertChar(char charConvert)
@@ -122,11 +126,20 @@ namespace ZeroUndubProcess
                 '7' => 0x46,
                 '8' => 0x47,
                 '9' => 0x48,
+                '"' => 0x8A,
                 '\'' => 0x8B,
+                '(' => 0x8C,
+                ')' => 0x8D,
                 '-' => 0x8E,
                 '?' => 0x8F,
+                '/' => 0x90,
+                '’' => 0x91,
+                '、' => 0x92,
+                ';' => 0x93,
+                ':' => 0x94,
                 ',' => 0x95,
                 '.' => 0x96,
+                '!' => 0x97,
                 '\n' => 0xFE,
                 _ => 0x0
             };

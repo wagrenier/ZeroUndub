@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using ZeroUndubProcess.GameText;
 
 namespace ZeroUndubProcess
 {
@@ -117,7 +118,9 @@ namespace ZeroUndubProcess
             {
                 var textInject = subtitles[i].Text;
 
-                textInject = TextUtils.LineSplit(textInject);
+                var isRadioSubtitle = subtitles[i].Id is > 154 and < 199;
+
+                textInject = TextUtils.LineSplit(textInject, isRadioSubtitle);
                 EuWriterHandler.WriteSubtitleNewAddress(zeroFile, i, subtitleOverallOffset);
 
                 var strBytes = TextUtils.ConvertToBytes(textInject);
@@ -251,28 +254,28 @@ namespace ZeroUndubProcess
                     return;
             }
 
-            var file_buffer = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
+            var fileBuffer = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
 
-            EuWriterHandler.OverwriteFile(euFile, file_buffer);
+            EuWriterHandler.OverwriteFile(euFile, fileBuffer);
         }
 
         private void SwapHomeMenu(ZeroFile zeroFile, int jpFileIndex)
         {
-            var file_buffer_jp = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
-            var file_buffer_eu = EuReaderHandler.ExtractFileContent(zeroFile);
+            var fileBufferJp = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
+            var fileBufferEu = EuReaderHandler.ExtractFileContent(zeroFile);
 
-            var newBuffer = file_buffer_eu.SubArray(0, file_buffer_eu.Length);
+            var newBuffer = fileBufferEu.SubArray(0, fileBufferEu.Length);
 
             for (var i = 0; i < 11; i++)
             {
-                var offsetEu = BitConverter.ToUInt32(file_buffer_eu.SubArray(0x10 + i * 0x4, 4));
+                var offsetEu = BitConverter.ToUInt32(fileBufferEu.SubArray(0x10 + i * 0x4, 4));
 
-                var offsetJp = BitConverter.ToUInt32(file_buffer_jp.SubArray(0x10 + i * 0x4, 4));
-                var sizeJp = BitConverter.ToUInt32(file_buffer_jp.SubArray(offsetJp + 0x10, 4));
+                var offsetJp = BitConverter.ToUInt32(fileBufferJp.SubArray(0x10 + i * 0x4, 4));
+                var sizeJp = BitConverter.ToUInt32(fileBufferJp.SubArray(offsetJp + 0x10, 4));
 
                 for (var k = 0; k < sizeJp; k++)
                 {
-                    newBuffer[k + offsetEu] = file_buffer_jp[k + offsetJp];
+                    newBuffer[k + offsetEu] = fileBufferJp[k + offsetJp];
                 }
             }
             
@@ -287,9 +290,9 @@ namespace ZeroUndubProcess
             }
 
             var jpFileIndex = euFile.FileId - (EuIsoConstants.AudioStartIndex - JpIsoConstants.AudioStartIndex);
-            var file_buffer = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
+            var fileBuffer = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
 
-            EuWriterHandler.OverwriteFile(euFile, file_buffer, EuReaderHandler.ExtractFileInfo(euFile.FileId + 1));
+            EuWriterHandler.OverwriteFile(euFile, fileBuffer, EuReaderHandler.ExtractFileInfo(euFile.FileId + 1));
         }
     }
 }
