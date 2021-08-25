@@ -19,7 +19,7 @@
         <Button x:Name="LaunchButton" Content="Undub" HorizontalAlignment="Left" Height="20" Margin="69,305,0,0"
                 VerticalAlignment="Top" Width="99" FontSize="10.667" Click="LaunchUndubbing" Background="#FF293955"
                 Foreground="#FFD6DBE9" BorderBrush="{x:Null}" Grid.Column="1" />
-        <CheckBox x:Name="ImportModelsCheckBox" ToolTip="Imports the Japanese 3D models. When checked with ImportSubtitles, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbModelImportChecked"
+        <CheckBox x:Name="ImportModelsCheckBox" ToolTip="Imports the Japanese 3D models. When checked with UndubCheck, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbModelImportChecked"
                   Unchecked="CbModelImportChecked" Content="Import Japanese 3D Models" HorizontalAlignment="Left"
                   Margin="106,384,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="180"
                   Grid.Column="1" Grid.ColumnSpan="2" />
