@@ -19,15 +19,15 @@
         <Button x:Name="LaunchButton" Content="Undub" HorizontalAlignment="Left" Height="20" Margin="69,305,0,0"
                 VerticalAlignment="Top" Width="99" FontSize="10.667" Click="LaunchUndubbing" Background="#FF293955"
                 Foreground="#FFD6DBE9" BorderBrush="{x:Null}" Grid.Column="1" />
-        <CheckBox x:Name="ImportModelsCheckBox" IsChecked="False" Checked="CbModelImportChecked"
-                  Unchecked="CbModelImportChecked" Content="Import 3D Models" HorizontalAlignment="Left"
-                  Margin="106,384,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="120"
+        <CheckBox x:Name="ImportModelsCheckBox" ToolTip="Imports the Japanese 3D models. When checked with ImportSubtitles, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbModelImportChecked"
+                  Unchecked="CbModelImportChecked" Content="Import Japanese 3D Models" HorizontalAlignment="Left"
+                  Margin="106,384,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="180"
                   Grid.Column="1" Grid.ColumnSpan="2" />
-        <CheckBox x:Name="ImportSubtitlesCheckBox" IsChecked="False" Checked="CbSubtitleChecked"
+        <CheckBox x:Name="ImportSubtitlesCheckBox" ToolTip="Injects English subtitles, this will break the French language in-game" IsChecked="False" Checked="CbSubtitleChecked"
                   Unchecked="CbSubtitleChecked" Content="Import Subtitles" HorizontalAlignment="Left"
                   Margin="106,340,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="120"
                   Grid.Column="1" Grid.ColumnSpan="2" />
-        <CheckBox x:Name="UndubCheckBox" IsChecked="False" Checked="CbUndubChecked" Unchecked="CbUndubChecked"
+        <CheckBox x:Name="UndubCheckBox" ToolTip="Imports the original Japanese audio into the game. When checked with ImportModels, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbUndubChecked" Unchecked="CbUndubChecked"
                   Content="Undub" HorizontalAlignment="Left" Margin="106,363,0,0" VerticalAlignment="Top"
                   Foreground="#FF293955" Height="16" Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
         <Button x:Name="FileSelectorButton" Content="Select Files" HorizontalAlignment="Left" Margin="178,304,0,0"

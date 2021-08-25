@@ -8,11 +8,10 @@ using ZeroUndubProcess;
 
 namespace ZeroUndub
 {
-    /// <summary>
-    ///     Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private static string _windowName = "PS2 Fatal Frame Undubber";
+        
         public MainWindow()
         {
             RestorationOptions = new Options
@@ -53,11 +52,11 @@ namespace ZeroUndub
         {
             if (string.IsNullOrWhiteSpace(JpIsoFile) || string.IsNullOrWhiteSpace(EuIsoFile))
             {
-                MessageBox.Show("Please select the files before!", "PS2 Fatal Frame Undubber");
+                MessageBox.Show("Please select the files before!", _windowName);
                 return;
             }
 
-            MessageBox.Show("Copying the US ISO, this may take a few minutes!", "PS2 Fatal Frame Undubber");
+            MessageBox.Show("Copying the EU ISO, this may take a few minutes! pz_redux will be created in the same folder as the EU ISO.", _windowName);
             IsUndubLaunched = true;
 
             var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, RestorationOptions);
@@ -75,11 +74,11 @@ namespace ZeroUndub
             if (!importer.IsSuccess)
             {
                 MessageBox.Show($"The program failed with the following message: {importer.ErrorMessage}",
-                    "PS2 Fatal Frame Undubber");
+                    _windowName);
                 return;
             }
 
-            MessageBox.Show("All Done! Enjoy the game :D", "PS2 Fatal Frame Undubber");
+            MessageBox.Show("All Done! Enjoy the game :D", _windowName);
         }
 
         private void LaunchUndubbing(object sender, EventArgs e)
@@ -107,6 +106,7 @@ namespace ZeroUndub
 
         private void FileSelectorClick(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Select the EU ISO", _windowName);
             var euFileDialog = new OpenFileDialog
             {
                 Filter = "iso files (*.iso)|*.iso|All files (*.*)|*.*",
@@ -117,7 +117,8 @@ namespace ZeroUndub
             {
                 EuIsoFile = euFileDialog.FileName;
             }
-
+            
+            MessageBox.Show("Select the JP ISO", _windowName);
             var jpFileDialog = new OpenFileDialog
             {
                 Filter = "iso files (*.iso)|*.iso|All files (*.*)|*.*",
