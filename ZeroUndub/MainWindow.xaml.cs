@@ -61,7 +61,11 @@ namespace ZeroUndub
 
             var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, RestorationOptions);
 
-            var task = Task.Factory.StartNew(() => { importer.RestoreGame(); });
+            var task = Task.Factory.StartNew(() =>
+            {
+                importer.RestoreGame();
+                
+            });
 
             while (!importer.IsCompleted)
             {
@@ -78,6 +82,7 @@ namespace ZeroUndub
                 return;
             }
 
+            MessageBox.Show("Don't forget to enable the 60Hz mode once in game", _windowName);
             MessageBox.Show("All Done! Enjoy the game :D", _windowName);
         }
 
