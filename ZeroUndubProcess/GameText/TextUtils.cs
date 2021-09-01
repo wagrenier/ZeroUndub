@@ -27,7 +27,8 @@ namespace ZeroUndubProcess.GameText
 
         public static string LineSplit(string subtitleText, bool isRadioSubtitle = false)
         {
-            var maxLineLength = isRadioSubtitle ? 50 : 25;
+            var maxLineLength = isRadioSubtitle ? 39 : 25;
+            var screenMaxLineLength = isRadioSubtitle ? 43 : 43;
             
             if (subtitleText.Length < maxLineLength)
             {
@@ -49,6 +50,20 @@ namespace ZeroUndubProcess.GameText
                 if (subtitleText[i] != ' ' || !doLineSplit)
                 {
                     continue;
+                }
+
+                if (currentLineIndex >= screenMaxLineLength)
+                {
+                    for (var k = i - 1; k > 0; k--)
+                    {
+                        if (subtitleText[k] != ' ')
+                        {
+                            continue;
+                        }
+
+                        i = k;
+                        break;
+                    }
                 }
                 
                 returnStr[i] = '\n';
