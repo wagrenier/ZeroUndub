@@ -3,7 +3,8 @@
 ![Downloads](https://img.shields.io/github/downloads/wagrenier/zeroundub/total)
 ![Push Since Last Release](https://img.shields.io/github/commits-since/wagrenier/zeroundub/latest)
 
-Undub project for Fatal Frame PS2 (Project Zero/零)
+## Undub project for Fatal Frame PS2 (Project Zero/零)
+
 ![Background Image](docs/background.png)
 
 ![Splash Screen And Original Title Screen](docs/splashscreen.gif)
