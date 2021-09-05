@@ -4,36 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="PS2 Fatal Frame Undubber" Height="472.25" Width="344.401" ResizeMode="NoResize" Background="#FFD6DBE9"
+        Title="PS2 Fatal Frame Undubber" Height="483" Width="320" ResizeMode="NoResize" Background="#FFD6DBE9"
         WindowStyle="ToolWindow">
     <Window.Effect>
         <DropShadowEffect />
     </Window.Effect>
-    <Grid Background="#FFD6DBE9" Margin="0,0,0,1">
+    <Grid Background="#000000" HorizontalAlignment="Right" Width="320">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*" />
             <ColumnDefinition Width="89*" />
             <ColumnDefinition Width="83*" />
             <ColumnDefinition Width="0*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="LaunchButton" Content="Undub" HorizontalAlignment="Left" Height="20" Margin="69,305,0,0"
-                VerticalAlignment="Top" Width="99" FontSize="10.667" Click="LaunchUndubbing" Background="#FF293955"
-                Foreground="#FFD6DBE9" BorderBrush="{x:Null}" Grid.Column="1" />
+        <Button x:Name="LaunchButton" Content="Undub" Height="32" Margin="59,292,6,0"
+                VerticalAlignment="Top" Click="LaunchUndubbing" Style="{StaticResource BntHover}" BorderBrush="{x:Null}" Grid.Column="1" />
         <CheckBox x:Name="ImportModelsCheckBox" ToolTip="Imports the Japanese 3D models. When checked with UndubCheck, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbModelImportChecked"
                   Unchecked="CbModelImportChecked" Content="Import Japanese 3D Models" HorizontalAlignment="Left"
-                  Margin="106,384,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="180"
+                  Margin="100,341,0,0" VerticalAlignment="Top" Foreground="#FFFFFF" Height="16" Width="180"
                   Grid.Column="1" Grid.ColumnSpan="2" />
         <CheckBox x:Name="ImportSubtitlesCheckBox" ToolTip="Injects English subtitles, this will break the French language in-game" IsChecked="False" Checked="CbSubtitleChecked"
-                  Unchecked="CbSubtitleChecked" Content="Import Subtitles" HorizontalAlignment="Left"
-                  Margin="106,340,0,0" VerticalAlignment="Top" Foreground="#FF293955" Height="16" Width="120"
+                  Unchecked="CbSubtitleChecked" Content="Import Subtitles" HorizontalAlignment="Center"
+                  Margin="0,362,0,0" VerticalAlignment="Top" Foreground="#FFFFFF" Height="16" Width="120"
                   Grid.Column="1" Grid.ColumnSpan="2" />
         <CheckBox x:Name="UndubCheckBox" ToolTip="Imports the original Japanese audio into the game. When checked with ImportModels, FMVs will have the original 3D models when possible" IsChecked="False" Checked="CbUndubChecked" Unchecked="CbUndubChecked"
-                  Content="Undub" HorizontalAlignment="Left" Margin="106,363,0,0" VerticalAlignment="Top"
-                  Foreground="#FF293955" Height="16" Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
-        <Button x:Name="FileSelectorButton" Content="Select Files" HorizontalAlignment="Left" Margin="178,304,0,0"
-                VerticalAlignment="Top" Width="99" Click="FileSelectorClick" Foreground="#FFD6DBE9"
-                Background="#FF2C3E5F" BorderBrush="{x:Null}" Height="22" Grid.Column="1" Grid.ColumnSpan="2" />
-        <Image x:Name="Image" HorizontalAlignment="Left" Height="244" Margin="73,30,0,0" VerticalAlignment="Top"
+                  Content="Undub" HorizontalAlignment="Center" Margin="0,383,0,0" VerticalAlignment="Top"
+                  Foreground="#FFFFFF" Height="16" Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Button x:Name="FileSelectorButton" Content="Select Files" HorizontalAlignment="Left" Margin="6,292,0,0"
+                VerticalAlignment="Top" Width="100" Click="FileSelectorClick" Style="{StaticResource BntHover}" BorderBrush="{x:Null}" Height="32" Grid.Column="2" />
+        <Image x:Name="Image" HorizontalAlignment="Left" Height="244" Margin="70,23,0,0" VerticalAlignment="Top"
                Width="192" Source="main.png" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" />
         <ProgressBar Name="pbStatus" HorizontalAlignment="Left" Height="10" Margin="116,412,0,0"
                      VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.ColumnSpan="2" />
