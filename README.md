@@ -5,8 +5,6 @@
 
 ## Undub project for Fatal Frame PS2 (Project Zero/零)
 
-![Background Image](docs/background.png)
-
 ![Splash Screen And Original Title Screen](docs/splashscreen.gif)
 
 ![JP 3D Models](docs/models.gif)
