@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 
 namespace ZeroUndubProcess
@@ -58,7 +59,7 @@ namespace ZeroUndubProcess
             _writer.Write(buffer);
         }
 
-        private void AppendFile(ZeroFile zeroFile, byte[] fileContent)
+        public void AppendFile(ZeroFile zeroFile, byte[] fileContent)
         {
             _writer.BaseStream.Seek(FileArchiveEndIsoAddress, SeekOrigin.Begin);
             var startAddress = (uint) FileArchiveEndAddress / Ps2Constants.SectorSize;
@@ -75,8 +76,37 @@ namespace ZeroUndubProcess
             WriteNewAddressFile(zeroFile, startAddress);
             WriteNewSizeFile(zeroFile, fileContent.Length);
         }
+        
+        public void WriteSubtitleNewText(ZeroFile subtitleFile, int subtitleOverallOffset, byte[] bytes)
+        {
+            SeekSubtitleAddressText(subtitleFile, subtitleOverallOffset);
+            _writer.Write(bytes);
+            _writer.Write(new byte[]{0xFF});
+        }
+        
+        public void WriteSubtitleNewAddress(ZeroFile subtitleFile, int subtitleId, int newAddress)
+        {
+            SeekSubtitleAddressIndex(subtitleFile, subtitleId);
+            _writer.Write(newAddress + EuIsoConstants.SubtitleTextOffset);
+        }
+        
+        private void SeekSubtitleAddressText(ZeroFile subtitleFile, int subtitleOverallOffset)
+        {
+            SeekFile(subtitleFile);
+            var textFileOffset = subtitleOverallOffset + EuIsoConstants.SubtitleTextOffset;
 
-        private void WriteNewSizeFile(ZeroFile zeroFile, int newSize)
+            _writer.Seek(textFileOffset, SeekOrigin.Current);
+        }
+
+        private void SeekSubtitleAddressIndex(ZeroFile subtitleFile, int subtitleId)
+        {
+            SeekFile(subtitleFile);
+            var textFileOffset = subtitleId * 0x4 + EuIsoConstants.SubtitleIndexOffset;
+
+            _writer.BaseStream.Seek(textFileOffset, SeekOrigin.Current);
+        }
+
+        public void WriteNewSizeFile(ZeroFile zeroFile, int newSize)
         {
             var fileSizeInfoOffset = zeroFile.FileId * 0x8 + 0x4;
             SeekHdOffset(fileSizeInfoOffset);
