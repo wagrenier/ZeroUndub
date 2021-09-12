@@ -14,6 +14,9 @@ namespace ZeroUndubProcess
         public const int AudioStartIndex = 1622;
         public const long ImgHdBinStartAddress = 0xA63000;
         public const long ImgBdBinStartAddress = 0x384A7800;
+        public const long ImgBdBinEndAddress = 0x82A0F800;
+        public const long ImgBdSize = 0x4A568000;
+        public const long IsoEndAddress = 0xDF860000;
     }
 
     public static class JpIsoConstants

@@ -104,7 +104,7 @@ namespace ZeroUndubProcess
 
         private void InjectNewSubtitles(ZeroFile zeroFile)
         {
-            if (!UndubOptions.IsSubtitleInject || zeroFile.FileId != 40)
+            if (!UndubOptions.IsSubtitleInject || zeroFile.FileId != 80)
             {
                 return;
             }
@@ -114,22 +114,24 @@ namespace ZeroUndubProcess
             var subtitleOverallOffset = 0x0;
             var subtitles = JsonSerializer.Deserialize<List<SubtitleFile>>(File.ReadAllText("transcribe.json"));
 
+            var subtitleHandler = new SubtitleHandler(EuReaderHandler.ExtractFileContent(zeroFile));
+
             for (var i = 0; i < EuIsoConstants.NumberSubtitles + 46; i++)
             {
                 var textInject = subtitles[i].Text;
 
                 var isRadioSubtitle = subtitles[i].Id is > 154 and < 199;
+                
+                subtitleHandler.WriteSubtitleNewAddress(zeroFile, i, subtitleOverallOffset);
 
                 textInject = TextUtils.LineSplit(textInject, isRadioSubtitle);
-                EuWriterHandler.WriteSubtitleNewAddress(zeroFile, i, subtitleOverallOffset);
-
                 var strBytes = TextUtils.ConvertToBytes(textInject);
-
-                EuWriterHandler.WriteSubtitleNewText(zeroFile, subtitleOverallOffset, strBytes);
+                
+                subtitleHandler.WriteSubtitleNewText(zeroFile, subtitleOverallOffset, strBytes);
                 subtitleOverallOffset += strBytes.Length + 1;
             }
-
-            EuWriterHandler.WriteNewSizeFile(zeroFile, (int) zeroFile.Size + 100000);
+            
+            EuWriterHandler.OverwriteFile(zeroFile, subtitleHandler.GetFileContent());
         }
 
         private void PssUndub()
@@ -290,9 +292,9 @@ namespace ZeroUndubProcess
             }
 
             var jpFileIndex = euFile.FileId - (EuIsoConstants.AudioStartIndex - JpIsoConstants.AudioStartIndex);
-            var fileBuffer = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
+            var fileContent = JpReaderHandler.ExtractFileContent(JpReaderHandler.ExtractFileInfo(jpFileIndex));
 
-            EuWriterHandler.OverwriteFile(euFile, fileBuffer, EuReaderHandler.ExtractFileInfo(euFile.FileId + 1));
+            EuWriterHandler.OverwriteFile(euFile, fileContent);
         }
     }
 }

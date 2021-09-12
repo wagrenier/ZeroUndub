@@ -58,6 +58,8 @@ namespace ZeroUndub
 
             MessageBox.Show("Copying the EU ISO, this may take a few minutes! pz_redux will be created in the same folder as the EU ISO.", _windowName);
             IsUndubLaunched = true;
+            
+            (sender as BackgroundWorker)?.ReportProgress(5);
 
             var importer = new ZeroFileImporter(EuIsoFile, JpIsoFile, RestorationOptions);
 
