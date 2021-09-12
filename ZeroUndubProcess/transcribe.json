@@ -2,7 +2,7 @@
       {
             "Id": 0,
             "TextId": "Dummy Message",
-            "Text": "Dummy Message"
+            "Text": " "
       },
       {
             "Id": 1,
@@ -172,7 +172,7 @@
       {
             "Id": 34,
             "TextId": "SUBTITLES-1120-02",
-            "Text": "034"
+            "Text": " "
       },
       {
             "Id": 35,
@@ -267,7 +267,7 @@
       {
             "Id": 53,
             "TextId": "SUBTITLES-2010-05A",
-            "Text": "053"
+            "Text": " "
       },
       {
             "Id": 54,
@@ -277,7 +277,7 @@
       {
             "Id": 55,
             "TextId": "SUBTITLES-2013-01",
-            "Text": "055"
+            "Text": " "
       },
       {
             "Id": 56,
@@ -457,7 +457,7 @@
       {
             "Id": 91,
             "TextId": "SUBTITLES-4080-01",
-            "Text": "091"
+            "Text": " "
       },
       {
             "Id": 92,
@@ -1027,7 +1027,7 @@
       {
             "Id": 205,
             "TextId": "SUBTITLES-AG07-KOKIRIE07-01",
-            "Text": "205"
+            "Text": " "
       },
       {
             "Id": 206,
@@ -1052,7 +1052,7 @@
       {
             "Id": 210,
             "TextId": "SUBTITLES-GD-LOSTCHL2-01",
-            "Text": "210"
+            "Text": " "
       },
       {
             "Id": 211,
@@ -1072,7 +1072,7 @@
       {
             "Id": 214,
             "TextId": "SUBTITLES-GD-MEGA-01",
-            "Text": "214"
+            "Text": " "
       },
       {
             "Id": 215,
@@ -1097,7 +1097,7 @@
       {
             "Id": 219,
             "TextId": "SUBTITLES-GD-PRIEST4-01",
-            "Text": "219"
+            "Text": " "
       },
       {
             "Id": 220,
@@ -1152,7 +1152,7 @@
       {
             "Id": 230,
             "TextId": "SUBTITLE-ID-230",
-            "Text": "230"
+            "Text": " "
       },
       {
             "Id": 231,
@@ -1282,76 +1282,76 @@
       {
             "Id": 256,
             "TextId": "SUBTITLE-ID-256",
-            "Text": "256"
+            "Text": " "
       },
       {
             "Id": 257,
             "TextId": "SUBTITLE-ID-257",
-            "Text": "257"
+            "Text": " "
       },
       {
             "Id": 258,
             "TextId": "SUBTITLE-ID-258",
-            "Text": "258"
+            "Text": " "
       },
       {
             "Id": 259,
             "TextId": "SUBTITLE-ID-259",
-            "Text": "259"
+            "Text": " "
       },
       {
             "Id": 260,
             "TextId": "SUBTITLE-ID-260",
-            "Text": "260"
+            "Text": " "
       },
       {
             "Id": 261,
             "TextId": "SUBTITLE-ID-261",
-            "Text": "261"
+            "Text": " "
       },
       {
             "Id": 262,
             "TextId": "SUBTITLE-ID-262",
-            "Text": "262"
+            "Text": " "
       },
       {
             "Id": 263,
             "TextId": "SUBTITLE-ID-263",
-            "Text": "263"
+            "Text": " "
       },
       {
             "Id": 264,
             "TextId": "SUBTITLE-ID-264",
-            "Text": "264"
+            "Text": " "
       },
       {
             "Id": 265,
             "TextId": "SUBTITLE-ID-265",
-            "Text": "265"
+            "Text": " "
       },
       {
             "Id": 266,
             "TextId": "SUBTITLE-ID-266",
-            "Text": "266"
+            "Text": " "
       },
       {
             "Id": 267,
             "TextId": "SUBTITLE-ID-267",
-            "Text": "267"
+            "Text": " "
       },
       {
             "Id": 268,
             "TextId": "SUBTITLE-ID-268",
-            "Text": "268"
+            "Text": " "
       },
       {
             "Id": 269,
             "TextId": "SUBTITLE-ID-269",
-            "Text": "269"
+            "Text": " "
       },
       {
             "Id": 270,
             "TextId": "SUBTITLE-ID-270",
-            "Text": "270"
+            "Text": " "
       }
 ]
