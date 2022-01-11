@@ -8,11 +8,7 @@ namespace ZeroUndubProcess
 {
     public sealed class ZeroFileImporter
     {
-        public int TotalFiles { get; private set; }
-        public int FilesCompleted { get; private set; }
-        public bool IsCompleted { get; private set; }
-        public bool IsSuccess { get; private set; }
-        public string ErrorMessage { get; private set; }
+        public InfoReporter Reporter { get; private set; }
         private FileInfo JpIsoFile { get; }
         private FileInfo EuIsoFileRead { get; }
         private FileInfo EuIsoFileWrite { get; }
@@ -42,8 +38,13 @@ namespace ZeroUndubProcess
             
             PssInfos = JsonSerializer.Deserialize<List<PssInfo>>(PssConstants.PssIsoData);
 
-            TotalFiles = PssInfos.Count + EuIsoConstants.NumberFiles;
-            FilesCompleted = 0;
+            Reporter = new InfoReporter
+            {
+                TotalFiles = PssInfos.Count + EuIsoConstants.NumberFiles,
+                FilesCompleted = 0,
+                IsCompleted = false,
+                IsSuccess = false
+            };
         }
 
         public void RestoreGame()
@@ -80,18 +81,19 @@ namespace ZeroUndubProcess
                         InjectNewSubtitles(zeroFile);
                     }
                     
-                    FilesCompleted += 1;
+                    Reporter.FilesCompleted += 1;
                 }
-
-                IsSuccess = true;
+                
+                EuWriterHandler.FillIso();
+                Reporter.IsSuccess = true;
             }
             catch (Exception e)
             {
-                ErrorMessage = e.Message;
-                IsSuccess = false;
+                Reporter.ErrorMessage = e.Message;
+                Reporter.IsSuccess = false;
             }
 
-            IsCompleted = true;
+            Reporter.IsCompleted = true;
             CloseFiles();
         }
         
@@ -136,7 +138,7 @@ namespace ZeroUndubProcess
         {
             foreach (var currentPss in PssInfos)
             {
-                FilesCompleted += 1;
+                Reporter.FilesCompleted += 1;
                 
                 var jpBuffer = JpReaderHandler.ExtractFileFromAbsoluteAddress(currentPss.JpOffset, (int) currentPss.JpSize);
 

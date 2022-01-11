@@ -1,5 +1,5 @@
-using System;
 using System.IO;
+using System.Runtime.Intrinsics.X86;
 
 namespace ZeroUndubProcess
 {
@@ -138,6 +138,15 @@ namespace ZeroUndubProcess
             {
                 _writer.Write(0x0);
             }
+        }
+
+        public void FillIso()
+        {
+            _writer.Seek(0x0, SeekOrigin.End);
+
+            var blankBytes = Ps2Constants.SectorSize - _writer.BaseStream.Position % Ps2Constants.SectorSize;
+            
+            WriteEmptyByte((int)blankBytes);
         }
     }
 }

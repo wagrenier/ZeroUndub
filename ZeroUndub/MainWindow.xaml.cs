@@ -10,8 +10,8 @@ namespace ZeroUndub
 {
     public partial class MainWindow : Window
     {
-        private static string _windowName = "PS2 Fatal Frame Undubber";
-        
+        private const string _windowName = "PS2 Fatal Frame Undubber";
+
         public MainWindow()
         {
             RestorationOptions = new Options
@@ -69,17 +69,17 @@ namespace ZeroUndub
                 
             });
 
-            while (!importer.IsCompleted)
+            while (!importer.Reporter.IsCompleted)
             {
-                (sender as BackgroundWorker)?.ReportProgress(100 * importer.FilesCompleted / importer.TotalFiles);
+                (sender as BackgroundWorker)?.ReportProgress(100 * importer.Reporter.FilesCompleted / importer.Reporter.TotalFiles);
                 Thread.Sleep(100);
             }
 
             (sender as BackgroundWorker)?.ReportProgress(100);
 
-            if (!importer.IsSuccess)
+            if (!importer.Reporter.IsSuccess)
             {
-                MessageBox.Show($"The program failed with the following message: {importer.ErrorMessage}",
+                MessageBox.Show($"The program failed with the following message: {importer.Reporter.ErrorMessage}",
                     _windowName);
                 return;
             }
