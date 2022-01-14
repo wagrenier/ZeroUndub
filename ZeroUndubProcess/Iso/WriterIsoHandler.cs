@@ -144,9 +144,10 @@ namespace ZeroUndubProcess
         {
             _writer.Seek(0x0, SeekOrigin.End);
 
-            var blankBytes = Ps2Constants.SectorSize - _writer.BaseStream.Position % Ps2Constants.SectorSize;
-            
-            WriteEmptyByte((int)blankBytes);
+            while (_writer.BaseStream.Position % Ps2Constants.SectorSize != 0)
+            {
+                _writer.Write(0x00);
+            }
         }
     }
 }
