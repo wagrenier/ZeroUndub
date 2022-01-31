@@ -43,12 +43,7 @@ jobs:
           
     - name: Use GitVersion
       id: gitversion # step id used as reference for output values
-      uses: gittools/actions/gitversion/execute@v0.9.7
-      #with:
-      #  useConfigFile: true
-      #  configFilePath: ./.github/GitVersion.yml
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'   
+      uses: gittools/actions/gitversion/execute@v0.9.11
     
     # Zips the binaries and required files
     - name: Zip App
