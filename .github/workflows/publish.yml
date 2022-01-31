@@ -36,9 +36,7 @@ jobs:
       run: dotnet publish -c Release /p:DebugType=None -o ./release
         
     # Setups the env vars for gitversion
-    - uses: gittools/actions/gitversion/setup@v0.9.7
-      env:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+    - uses: gittools/actions/gitversion/setup@v0.9.11
       with:
           versionSpec: '5.x.x'
           includePrerelease: true
